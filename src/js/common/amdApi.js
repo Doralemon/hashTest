@@ -55,7 +55,7 @@ define([
                             alert("服务器错误!");
                             break;
                         case 10001:
-                            alert("请输入正确信息!");
+                            alert("您的登录信息不正确!");
                             break;
                         case 10002:
                             alert("请重新登录看到科技后台管理系统!");

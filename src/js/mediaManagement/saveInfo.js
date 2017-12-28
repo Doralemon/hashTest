@@ -22,8 +22,11 @@ define(['jquery', 'artTemplate', 'common/amdApi'],
                 // console.log(json)
             amdApi.ajax({ url: 'medias/' + resourceTpye + '/' + media_id + '/change', type: 'post', json: JSON.stringify(json) }, function(res) {
                 alert('保存成功！');
-                window.location.replace("#/media/mediaLibrary");
-                window.location.reload(true); 
+                var url = sessionStorage.getItem("mediahashUrl");
+                window.location.replace(url);
+                window.location.reload(true);
+                var page = sessionStorage.getItem("page");
+                sessionStorage.setItem("page", page);
                 $('.modal-backdrop').hide();
             })
         }

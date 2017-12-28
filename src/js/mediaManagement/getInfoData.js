@@ -79,15 +79,15 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
                 $('.kandao-mediaLibraryInfo').find(".pagination").jBootstrapPage({
                     pageSize: pageSize,
                     total: total,
-                    pageNow:json.page,
+                    pageNow: json.page,
                     maxPageButton: buttons,
                     onPageClicked: function(obj, pageIndex) {
                         localStorage.setItem("currentPage", "(pageIndex + 1)")
                             // alert((pageIndex + 1) + '页');
                         json.page = pageIndex + 1;
                         amdApi.ajax({ url: 'medias/' + resourceTpye + '/' + media_id + '/links', type: "get", json: json }, function(resType) {
-                            sessionStorage.removeItem("page");
-                            sessionStorage.setItem("page", json.page);
+                            sessionStorage.removeItem("pageInfo");
+                            sessionStorage.setItem("pageInfo", json.page);
                             _this.getListData(resType, resourceTpye);
                         })
                     }

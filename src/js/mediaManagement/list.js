@@ -1,29 +1,37 @@
 define(['jquery', 'text!tpls/mediaManagement/mediaLibrary.html', 'artTemplate', 'common/amdApi',
         'mediaManagement/add', 'mediaManagement/cloumnManagement', 'mediaManagement/transCoding',
-         'mediaManagement/getData', 'mediaManagement/mediaSeach',
+        'mediaManagement/getData',
         'mediaManagement/allSelected', 'mediaManagement/cloumnListAdd', 'mediaManagement/cloumnListremove',
-        'mediaManagement/clearAll', 
+        'mediaManagement/clearAll',
         "bootstrap", "page"
     ],
-    function($, mediaLibraryTpl, art, amdApi, add, cloumnManagement, transCoding, getData, mediaSeach,
+    function($, mediaLibraryTpl, art, amdApi, add, cloumnManagement, transCoding, getData,
         allSelected, cloumnListAdd, cloumnListremove, clearAll) {
-        return function(headFlag,transition ) {
-            var page, id,q,selectWord,column,m_type,url;
-            m_type = transition.query.type
-            page = sessionStorage.getItem("page");;
-            selectWord = transition.query.selectWord;
-            q = transition.query.q;
-            column = transition.query.column;
-            var json = {
-                limit:8,
-                page:page||1,
-                q:q||"",
-                type:m_type||"",
-                column:column
+        return function(headFlag, transition) {
+            var page, id, q, selectWord, column, m_type, url;
+            m_type = transition.query.type || "";
+            if (sessionStorage.getItem("page") !== "null" || sessionStorage.getItem("page") !== null) {
+                page = sessionStorage.getItem("page");
+            } else {
+                page = "1"
             }
+            selectWord = transition.query.selectWord || "";
+            q = transition.query.q || "";
+            column = transition.query.column || "";
+            var json = {
+                limit: 8,
+                page: page || 1,
+                q: q,
+                type: m_type,
+                column: column
+            }
+            url = "#/media/mediaLibrary?page=" + page + "&q=" + q + "&type=" + m_type + "&column=" + column + "&selectWord=" + selectWord;
+            // $('.kandao-aside a[href="#/media/mediaLibrary"]').attr("href", url);
+            sessionStorage.removeItem("mediahashUrl");
+            sessionStorage.setItem("mediahashUrl", url);
             amdApi.ajax({ url: 'medias/columns', type: 'get', json: json }, function(resTag) {
                 amdApi.ajax({ url: 'medias', type: 'get', json: json }, function(res) {
-                    sessionStorage.setItem("resTag",JSON.stringify(resTag.result));
+                    sessionStorage.setItem("resTag", JSON.stringify(resTag.result));
                     if (!res.result.data.length) {
                         json.page = json.page - 1 || 1;
                         amdApi.ajax({ url: 'medias', type: 'get', json: json }, function(res2) {
@@ -36,14 +44,6 @@ define(['jquery', 'text!tpls/mediaManagement/mediaLibrary.html', 'artTemplate', 
             });
 
             function afterAjax(resTag, res) {
-                if (res.result.data.length < 1) {
-                    $('.kandao-mediaManagement').find('.mediaContainer p').css('display', 'none');
-                    $('.kandao-mediaManagement').find('.mediaContainer .mediaInfo-bottom').css('display', 'none');
-                    $('.kandao-mediaManagement').find('.mediaInfoBody').html('暂无数据');
-                } else {
-                    $('.kandao-mediaManagement').find('.mediaContainer p').css('display', 'block');
-                    $('.kandao-mediaManagement').find('.mediaContainer .mediaInfo-bottom').css('display', 'block');
-                }
                 res.result.tags = resTag.result;
                 var mediaLibrary = art.render(mediaLibraryTpl, res.result);
                 var $mediaLibrary = $(mediaLibrary)
@@ -69,13 +69,14 @@ define(['jquery', 'text!tpls/mediaManagement/mediaLibrary.html', 'artTemplate', 
                         getData.getSelMedia();
                     })
                     .on('click', '.mediaSearch', function() { //查询
-                        var _self = $(this);
-                         q = $mediaLibrary.find('input[name="q"]').val();
-                         selectWord = $mediaLibrary.find('select[name="type"] option:selected').val();
-                        url = "#/media/mediaLibrary?page="+page+"&q="+q+"&type="+m_type+"&column="+column+"&selectWord="+selectWord;
-                        $('kandao-aside a[href="#/media/mediaLibrary"]').attr("href",url);
-                        location.href= url;
-                        mediaSeach(q, m_type,column,_self);
+                        $(this).attr("disabled", "disabled");
+                        q = $mediaLibrary.find('input[name="q"]').val();
+                        selectWord = $mediaLibrary.find('select[name="type"] option:selected').val();
+                        sessionStorage.setItem("page", 1);
+                        url = "#/media/mediaLibrary?page=" + page + "&q=" + q + "&type=" + m_type + "&column=" + column + "&selectWord=" + selectWord;
+                        // $('.kandao-aside a[href="#/media/mediaLibrary"]').attr("href", url);
+                        window.location.href = url;
+                        $(this).attr("disabled", false);
                     })
                     .on('keydown', 'input[name="q"]', function(e) { //enter键查询
                         if (e.keyCode == 13) {
@@ -86,7 +87,7 @@ define(['jquery', 'text!tpls/mediaManagement/mediaLibrary.html', 'artTemplate', 
                         }
                     })
                     .on('click', '.meadiaAdd', function() { //新增
-                        sessionStorage.setItem("page",1);
+                        sessionStorage.setItem("page", 1);
                         add(resTag, headFlag);
                     })
                     .on('click', '.transCode', function() { //转码
@@ -124,19 +125,19 @@ define(['jquery', 'text!tpls/mediaManagement/mediaLibrary.html', 'artTemplate', 
                 getData.myAjax(json, res);
                 getData.getSelMedia();
                 $(".kandao-mediaManagement").find('input[name="q"]').val(q); //设置q
-                $(".kandao-mediaManagement").find('select[name="type"]').val(selectWord);//设置关键词select
-                $(".kandao-mediaManagement").find(".firstColumn .sBox").each(function(i,v){
-                    if($(v).attr("id")==column){
+                $(".kandao-mediaManagement").find('select[name="type"]').val(selectWord); //设置关键词select
+                $(".kandao-mediaManagement").find(".firstColumn .sBox").each(function(i, v) {
+                    if ($(v).attr("id") == column) {
                         $(".kandao-mediaManagement").find(".firstColumn .sBox").removeClass("active");
                         $(this).addClass("active")
                     }
                 })
-                $(".kandao-mediaManagement").find('.secondColumn .sBox').each(function(i,v){
-                    if($(v).attr("type")==m_type){
-                        $(".kandao-mediaManagement").find('.secondColumn .sBox').removeClass("active");                        
+                $(".kandao-mediaManagement").find('.secondColumn .sBox').each(function(i, v) {
+                    if ($(v).attr("type") == m_type) {
+                        $(".kandao-mediaManagement").find('.secondColumn .sBox').removeClass("active");
                         $(this).addClass("active")
                     }
-                }) 
+                })
             };
         }
     })

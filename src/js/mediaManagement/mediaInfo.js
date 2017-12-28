@@ -1,21 +1,21 @@
 define(['jquery', 'text!tpls/mediaManagement/mediaLibraryInfo.html', 'artTemplate', 'common/amdApi',
         'mediaManagement/getCloumnId', 'mediaManagement/getInfoData', 'mediaManagement/deleteLink',
         'mediaManagement/deleteMedia', 'mediaManagement/getCloumnId', 'mediaManagement/getTagName',
-        'mediaManagement/saveInfo', 'mediaManagement/transCoding', 'mediaManagement/uploadFileRms', 'common/getPage',
+        'mediaManagement/saveInfo', 'mediaManagement/transCoding', 'mediaManagement/uploadFileRms',
         "bootstrap", "page"
     ],
     function($, mediaLibraryInfoTpl, art, amdApi, getCloumnById, getInfoData, deleteLink,
-        deleteMedia, getCloumnId, getTagName, saveInfo, transCoding, uploadFileRms, getPage) {
-        return function(headFlag,transition) {
-           var page =  sessionStorage.getItem("page");
-           var resTag = JSON.parse((sessionStorage.getItem("resTag")));
-           var media_id = transition.query.num;
-           var resourceTpye = transition.query.type;
+        deleteMedia, getCloumnId, getTagName, saveInfo, transCoding, uploadFileRms) {
+        return function(headFlag, transition) {
+            var pageInfo = sessionStorage.getItem("pageInfo");
+            var resTag = JSON.parse((sessionStorage.getItem("resTag")));
+            var media_id = transition.query.num;
+            var resourceTpye = transition.query.type;
             var json = {
-                limit:10,
-                page:page||1
+                limit: 10,
+                page: pageInfo || 1
             }
-            amdApi.ajax({ url: 'medias/' + resourceTpye + '/' + media_id + '/links', type: 'get', json:  json }, function(resType) { //格式链接
+            amdApi.ajax({ url: 'medias/' + resourceTpye + '/' + media_id + '/links', type: 'get', json: json }, function(resType) { //格式链接
                 // console.log(resType)
                 amdApi.ajax({ url: 'medias/' + resourceTpye + '/' + media_id, type: 'get' }, function(res) { //获取基本信息
                     // console.log(res);
@@ -87,7 +87,7 @@ define(['jquery', 'text!tpls/mediaManagement/mediaLibraryInfo.html', 'artTemplat
                         $mediaLibraryInfo.find('.mediaFluid').hide();
                     };
                     $(".kandao-contentBody").html($mediaLibraryInfo);
-                    sessionStorage.removeItem("resTag");                    
+                    sessionStorage.removeItem("resTag");
                     uploadFileRms($('#kandaoMediaLibraryInfo'), $('#kandaoMediaLibraryInfo #mediaInfoImg'), headFlag, function(res) { //调用rms上传图片
                         // console.log(res)
                         var json = {
@@ -108,7 +108,7 @@ define(['jquery', 'text!tpls/mediaManagement/mediaLibraryInfo.html', 'artTemplat
                         $('.kandao-mediaLibraryInfo').find('.linkContainer').html('暂时还没有数据哦~~');
                         return;
                     }
-                    getInfoData.myAjax( json, resType, resourceTpye, media_id); //渲染格式与链接
+                    getInfoData.myAjax(json, resType, resourceTpye, media_id); //渲染格式与链接
                 })
             })
         }

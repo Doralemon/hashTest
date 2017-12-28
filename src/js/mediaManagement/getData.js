@@ -59,7 +59,7 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
                     strTag = '';
                 }
                 str += '<div class="col-sm-4 col-md-3 mediaBigBox" id="' + obj.id + '">' +
-                    '<a href="#/media/mediaLibrary/detail?type='+obj.m_type+'&num='+obj.id+'" class="thumbnail">' +
+                    '<a href="#/media/mediaLibrary/detail?type=' + obj.m_type + '&num=' + obj.id + '" class="thumbnail">' +
                     '<div class="coverBox">' +
                     '</div>' +
                     '<div class="imgTop clearfix">' +
@@ -93,8 +93,16 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
             var num = 8;
             var index = Math.ceil(res.result.count / num);
             res.result.index = index;
-            $('.mediaContainer>p').text('总计' + res.result.count + '条结果');
-            $('.mediaInfo-bottom>p').text('每页显示8条信息,共' + index + '页');
+            if (res.result.data.length < 1) {
+                $('.kandao-mediaManagement').find('.mediaContainer p').css('display', 'none');
+                $('.kandao-mediaManagement').find('.mediaContainer .mediaInfo-bottom').css('display', 'none');
+                $('.kandao-mediaManagement').find('.mediaInfoBody').html('暂无数据');
+            } else {
+                $('.kandao-mediaManagement').find('.mediaContainer p').css('display', 'block');
+                $('.kandao-mediaManagement').find('.mediaContainer .mediaInfo-bottom').css('display', 'block');
+                $('.mediaContainer>p').text('总计' + res.result.count + '条结果');
+                $('.mediaInfo-bottom>p').text('每页显示8条信息,共' + index + '页');
+            }
             var btnNum;
             if (index < 6) {
                 btnNum = index;
@@ -112,11 +120,12 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
                 $('.go').click();
                 $(".pagination .goTo input").val("");
             }
+
             function createPage(pageSize, buttons, total) {
                 $('.kandao-mediaManagement').find(".pagination").jBootstrapPage({
                     pageSize: pageSize,
                     total: total,
-                    pageNow:json.page,
+                    pageNow: json.page,
                     maxPageButton: buttons,
                     onPageClicked: function(obj, pageIndex) {
                         // alert((pageIndex + 1) + '页');

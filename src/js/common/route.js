@@ -67,7 +67,8 @@
 			var currentHash = util.getParamsUrl();
 			if(this.routers[currentHash.path]){
 				this.refresh(currentHash)
-			}else{
+			}
+			else{
 				//不存在的地址重定向到首页
 				location.hash = '/index'
 			}

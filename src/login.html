@@ -43,16 +43,34 @@
     </div>
     <footer>
         <img src="img/kandaobottom.png" alt="" class="logo">
-    </footer>
+    </footer> 
+    <div class="modal fade" tabindex="-1" role="dialog" id="loginMessage">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="bodyBox text-center">
+                        <img src="./img/loading.gif" alt="">
+                        <p class="loginProgess">
+                            系统登录中，请稍候...
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>  
 </body>
 
 </html>
 
 <script src="js/lib/jquery-2.1.4.js"></script>
 <script src="js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="js/common/api.js"></script>
 <script type="text/javascript">
- if(!$('input[name = "username"]').val()||!$('input[name = "password"]').val()){
+$(function(){
+    if(!$('input[name = "username"]').val()||!$('input[name = "password"]').val()){
     $('input[name = "username"]').val($.cookie('username'));
     $('input[name = "password"]').val($.cookie('nnnnnn'));
     }
@@ -81,6 +99,7 @@
             alert("请输入邮箱/密码/验证字符！");
             return;
         }
+        $("#loginMessage").appendTo("body").modal();        
         function GetJsonData() {
             var json = {
                 "username": username,
@@ -102,7 +121,7 @@
             $.cookie('username', username,{expires:7});
             $.cookie('token', JSON.stringify(res.result.token),{expires:7});
             location.href = 'index.html';
-        })
+        },$('#loginMessage').appendTo("body").modal(),$('#loginMessage').modal("hide"))
     })
     function getCookie(c_name) { //获取cookie
         if (document.cookie.length>0)
@@ -124,5 +143,5 @@ $(".forgetPass").on("click",function(){ //忘记密码
     $.cookie('account', username,{expires:7});
     location.href="forgotLogin.html";
 })
-   
+})
 </script>

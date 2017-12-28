@@ -88,6 +88,16 @@ body footer .logo {
   color: #fff;
 }
 
+#loginMessage {
+  margin-top: 200px;
+}
+
+#loginMessage p.loginProgess {
+  margin-top: 40px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .resetPass form .form-group,
 .resetPass .btnBox {
   margin-top: 10px;

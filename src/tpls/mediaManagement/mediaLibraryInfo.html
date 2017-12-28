@@ -75,30 +75,18 @@
                         <span>{{date_created}}</span>
                     </div>
                     <div class="clearfix infodiv">
-                        <span class="title pull-left">状态</span>
-                         {{if (status=="UP")}}
-                        <span class="imgState {{status}}">上传成功</span>
-                         {{else if(status=="OF")}}
-                        <span class="imgState {{status}}">下线</span> 
-                        {{else if(status=="WT")}}
-                        <span class="imgState {{status}}">等待转码</span>
-                        {{else if(status=="TI")}}
-                        <span class="imgState {{status}}">转码中</span>
-                        {{else if(status=="TF")}}
-                        <span class="imgState {{status}}">转码失败</span>
-                        {{else if(status=="QU")}}
-                        <span class="imgState {{status}}">等待分发</span>
-                        {{else if(status=="DI")}}
-                        <span class="imgState {{status}}">分发成功</span>
-                        {{else if(status=="DF")}}
-                        <span class="imgState {{status}}">分发失败</span>
-                        {{else if(status=="In")}}
-                        <span class="imgState {{status}}">发布成功</span>
-                          {{else if(status=="IF")}}
-                        <span class="imgState {{status}}">发布失败</span>
-                          {{else if(status=="SU")}}
-                        <span class="imgState {{status}}">正常</span>
-                        {{/if}}
+                        <span class="title pull-left">状态</span> {{if (status=="UP")}}
+                        <span class="imgState {{status}}">上传成功</span> {{else if(status=="OF")}}
+                        <span class="imgState {{status}}">下线</span> {{else if(status=="WT")}}
+                        <span class="imgState {{status}}">等待转码</span> {{else if(status=="TI")}}
+                        <span class="imgState {{status}}">转码中</span> {{else if(status=="TF")}}
+                        <span class="imgState {{status}}">转码失败</span> {{else if(status=="QU")}}
+                        <span class="imgState {{status}}">等待分发</span> {{else if(status=="DI")}}
+                        <span class="imgState {{status}}">分发成功</span> {{else if(status=="DF")}}
+                        <span class="imgState {{status}}">分发失败</span> {{else if(status=="In")}}
+                        <span class="imgState {{status}}">发布成功</span> {{else if(status=="IF")}}
+                        <span class="imgState {{status}}">发布失败</span> {{else if(status=="SU")}}
+                        <span class="imgState {{status}}">正常</span> {{/if}}
                     </div>
                     <div class="clearfix infodiv mediaFluid">
                         <span class="title pull-left">媒体流地址</span>

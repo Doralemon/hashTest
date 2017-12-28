@@ -10,7 +10,7 @@
             lastSelectedIndex: 1,
             selectedIndex: 1,
             maxPageButton: 3,
-            pageNow:1,
+            pageNow: 1,
             onPageClicked: null
         };
         //      var firstBtn, preBtn, nextBtn, lastBtn;
@@ -40,25 +40,28 @@
                 $this.append('<li><a class="next" href="#"></a></li>');
                 //      		$this.append('<li><a class="last" href="#">&raquo;</a></li>');
                 $this.append('<li class="goTo">跳转到<input id="number" min="1" onpaste="return false"/><a class="go">GO</a></li>');
-                if(c.pageNow==1){
-                    $this.find('li:last-child').prev().removeClass('disabled');                
-                    $this.find('li:nth-child(1)').addClass('disabled');   
-                } else if(c.pageNow>1&&c.pageNow<c.maxPages){
-                    $this.find('li:first-child').removeClass('disabled');                
-                    $this.find('li:last-child').prev().removeClass('disabled');                
+                if (c.pageNow == 1) {
+                    $this.find('li:last-child').prev().removeClass('disabled');
+                    $this.find('li:nth-child(1)').addClass('disabled');
+                } else if (c.pageNow > 1 && c.pageNow < c.maxPages) {
+                    $this.find('li:first-child').removeClass('disabled');
+                    $this.find('li:last-child').prev().removeClass('disabled');
                 } else {
-                    $this.find('li:first-child').removeClass('disabled');                
-                    $this.find('li:last-child').prev().addClass('disabled');                    
+                    $this.find('li:first-child').removeClass('disabled');
+                    $this.find('li:last-child').prev().addClass('disabled');
                 }
-                $this.find('li:nth-child('+ (parseInt(c.pageNow) + 1) +')').addClass('active');
+                if (typeof(c.pageNow) == "string") {
+                    c.pageNow = parseInt(c.pageNow)
+                }
+                $this.find('li:nth-child(' + (c.pageNow + 1) + ')').addClass('active');
                 //      		firstBtn = $this.find('li a.first').parent();
                 preBtn = $this.find('li a.pre').parent();
                 //      		lastBtn = $this.find('li a.last').parent();
                 nextBtn = $this.find('li a.next').parent();
-                document.getElementById("number").addEventListener("input",function(event){
-                    event.target.value = event.target.value.replace(/\-/g,""); 
-                    event.target.value = event.target.value.replace(/\D/g,''); 
-                 });
+                document.getElementById("number").addEventListener("input", function(event) {
+                    event.target.value = event.target.value.replace(/\-/g, "");
+                    event.target.value = event.target.value.replace(/\D/g, '');
+                });
             }
 
             function mathPrePage(currButtonNum, currPage, maxPage, showPage) {
@@ -143,7 +146,7 @@
 
             }
 
-            function clickGo(selectedIndex, inputVal, allPage, pageSize) { 
+            function clickGo(selectedIndex, inputVal, allPage, pageSize) {
                 if (!inputVal) {
                     return false;
                 }
@@ -251,7 +254,7 @@
                     var inputVal = parseInt($('.goTo input').val()) //输入的页码
                     var allPage = Math.ceil(c.total / c.pageSize) //总共的页码
                     var inputTest = /^\+?[1-9][0-9]*$/;
-                    if (!inputTest.test(inputVal)){
+                    if (!inputTest.test(inputVal)) {
                         return;
                     }
                     if (!inputVal) {

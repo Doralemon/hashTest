@@ -14,7 +14,7 @@ function api() {
     return url;
 };
 
-function myAjax(opt, callback) {
+function myAjax(opt, callback,callback1,callback2) {
     $.ajax({
         url: api() + opt.url,
         type: opt.type,
@@ -23,6 +23,10 @@ function myAjax(opt, callback) {
         xhrFields: opt.xhrFields,//传cookie
         beforeSend: function(xhr) {
             xhr.setRequestHeader("x-token-id", opt.token);
+            callback1;
+        },
+        complete: function() { // ajax完成后,关闭模态框
+            callback2;
         },
         success: function(res) {
             switch (res.code) {
@@ -33,22 +37,22 @@ function myAjax(opt, callback) {
                     alert("服务器错误!");
                     break;
                 case 10001:
-                    alert("参数错误!");
+                    alert("您的登录信息不正确!");
                     break;
                 case 10002:
-                    alert("token错误!");
+                    alert("请重新登录看到科技后台管理系统!");
                     setTimeout(function() {
                         location.href = 'login.html';
                     }, 1500);
                     break;
                 case 10003:
-                    alert("token过期!");
+                    alert("请重新登录看到科技后台管理系统!");
                     setTimeout(function() {
                         location.href = 'login.html';
                     }, 1500);
                     break;
                 case 10004:
-                    alert("请登录!");
+                    alert("请重新登录看到科技后台管理系统!");
                     setTimeout(function() {
                         location.href = 'login.html';
                     }, 1500);
