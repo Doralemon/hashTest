@@ -1,0 +1,84 @@
+<div class="staticPage">
+    <ol class="breadcrumb reportList">
+        <li>首页</li>
+        <li>官网管理</li>
+        <li>文稿管理</li>
+        <li class="active">看到新闻管理</li>
+    </ol>
+    <div class="kandao-news commonMagagement">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="kandao-mediaLibrary-top clearfix">
+                    <div class="mediaTop-left pull-left">
+                        <div class="columnList">栏目</div>
+                        <div class="mediaType wordKey">关键词</div>
+                        <div class="handle">操作</div>
+                    </div>
+                    <div class="mediaTop-right pull-left">
+                        <div class="firstColumn">
+                            <span class="sBox active">全部</span>
+                            {{each newsType}}
+                            <span class="sBox" id="{{$value.id}}">{{$value.name}}</span>
+                            {{/each}}
+                            <span class="columnManagament">看到新闻类型管理</span>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon downBox">
+                                <select name="type">
+                                    <option value="">全部</option>
+                                    <option value="ZH-CN">中文</option>
+                                    <option value="EN-US">English</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" placeholder="关键词" name="q">
+                        </div>
+                        <button type="button" class="btn btn-default newsSearch">查询</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="reportSearchContent">
+                    <p class="pull-left">总计条信息</p>
+                    <div class="form-group pull-right">
+                        <span class="glyphicon glyphicon-sort-by-attributes sortByTime">按时间升序</span>
+                        <button type="button" class="btn btn-md Addnew">新建</button>
+                    </div>
+                    <table class="table table-striped  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>新闻标题</th>
+                                <th>新闻简介</th>
+                                <th>创建者</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>Obsidian相机震惊世界</td>
+                                <td>tu</td>
+                                <td>Obsidian相机震惊世界</td>
+                                <td>陈鹏飞</td>
+                                <td>2012-12-12 00:11</td>
+                                <td>
+                                    <button type="button" class="btn btn-md btnInfo">详情</button>
+                                    <button type="button" class="btn btn-md btnEdit">编辑</button>
+                                    <button type="button" class="btn btn-md toTop">置顶</button>
+                                    <button type="button" class="btn btn-md btnDelete">删除</button>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <div class="reportList-bottom clearfix">
+                        <p class="pull-left">每页显示10条信息,共页</p>
+                        <div>
+                            <ul class="pagination"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

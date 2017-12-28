@@ -1,0 +1,1 @@
+define(["jquery","common/amdApi"],function(n,o){return function(n){var n=parseInt(n);console.log(123)}});

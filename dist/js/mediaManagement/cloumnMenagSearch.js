@@ -1,0 +1,1 @@
+define(["jquery","common/amdApi"],function(n,i){return function(i){n("#cloumnManagement").find(".sBox").each(function(e,c){-1==n(c).html().indexOf(i)?n(this).css("display","none"):n(this).css("display","inline-block")})}});

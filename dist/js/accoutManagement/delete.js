@@ -1,0 +1,1 @@
+define(["jquery","common/amdApi","text!tpls/deletModal.html"],function(e,t,o){return function(n){n=parseInt(n),e("#deleteMassage").remove(),$deletModal=e(o).on("click",".btn-comfirm",function(){t.ajax({url:"customers/"+n+"/delete",type:"post"},function(){$deletModal.modal("hide"),e(".accoutManagement").trigger("click")})}).appendTo("body").modal()}});

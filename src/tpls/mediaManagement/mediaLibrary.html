@@ -1,0 +1,119 @@
+<div class="staticPage">
+    <ol class="breadcrumb">
+        <li><a href="#/index" style="color:#000;text-decoration:none">首页</a></li>
+        <li>媒体资源管理</li>
+        <li class="active">媒体素材库</li>
+    </ol>
+    <div class="kandao-mediaManagement commonMagagement">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="kandao-mediaLibrary-top clearfix">
+                    <div class="mediaTop-left pull-left">
+                        <div class="columnList">栏目</div>
+                        <div class="mediaType">类型</div>
+                        <div class="keyWord">关键词</div>
+                        <div class="handle">操作</div>
+                    </div>
+                    <div class="mediaTop-right pull-left">
+                        <div class="firstColumn">
+                            <span class="sBox active">全部</span> {{each tags}}
+                            <span class="sBox" id="{{$value.id}}">{{$value.name}}</span> {{/each}}
+                            <span class="columnManagament">栏目管理</span>
+                        </div>
+                        <div class="secondColumn">
+                            <span class="sBox active">全部</span>
+                            <span class="sBox" type="video">视频</span>
+                            <span class="sBox" type="photo">图片</span>
+                            <span class="sBox" type="live">直播</span>
+                        </div>
+                        <div class="form-group clearfix searchBox">
+                            <div class="input-group pull-left serchBox">
+                                <div class="input-group-addon downBox">
+                                    <select name="type">
+                                            <option value="">全文</option>
+                                            <option value="title">标题</option>
+                                            <option value="description">描述</option>
+                                            <option value="lebal">标签</option>
+                                        </select>
+                                </div>
+                                <input type="text" class="form-control" placeholder="搜索" name="q">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-default mediaSearch">查询</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="actionCenter clearfix">
+            <div class="actionLeft pull-left">
+                <span class="selectAll">全选</span>
+                <span class="clear">清空</span>
+            </div>
+            <div class="actionRight pull-right">
+                <button type="button" class="btn btn-default meadiaAdd">新增</button>
+                <!-- <button type="button" class="btn btn-default transCode">转码</button> -->
+                <div class="btn-group columnOperation">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    栏目操作 <span class="caret"></span>
+                                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="addToCloumn">添加至栏目&nbsp;&nbsp;&nbsp;&gt;</a>
+                            <div class="cloumnListAdd">
+                                {{each tags}}
+                                <span class="sBox" id="{{$value.id}}">{{$value.name}}</span> {{/each}}
+                            </div>
+                        </li>
+                        <li><a href="#" class="removeFromCloumn">从栏目移出&nbsp;&nbsp;&nbsp;&gt;</a>
+                            <div class="cloumnListremove">
+                                {{each tags}}
+                                <span class="sBox" id="{{$value.id}}">{{$value.name}}</span> {{/each}}
+                            </div>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" class="cloumnTwo">栏目管理</a></li>
+                    </ul>
+                </div>
+                <button type="button" class="btn btn-default mediaDelete">删除</button>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="mediaContainer">
+                    <p>总计条结果</p>
+                    <div class="row mediaInfoBody">
+                        <!-- <div class="col-sm-4 col-md-3 mediaBigBox">
+                            <a href="#/media/mediaLibrary/info" class="thumbnail">
+                                <div class="coverBox">
+                                    <div class="imgTop clearfix">
+                                        <span class="imgNum pull-left">1</span>
+                                        <span class="imgState pull-right OF">异常</span>
+                                    </div>
+                                    <img src="">
+                                    <div class="caption clearfix">
+                                        <h5 class="title">海龟美女创业记：不做白领 回收废品</h5>
+                                        <p class="">
+                                            <span class="resourceTpye pull-left">Video</span>
+                                            <span class="time pull-right">2016-12-12</span>
+                                        </p>
+                                    </div>
+                                    <div class="tags">
+                                        <span class="specificTag">tags1</span>
+                                        <span class="specificTag">tags2</span>
+                                        <span class="specificTag">tags3</span>
+                                        <span class="specificTag">tags4</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div> -->
+                    </div>
+                    <div class="mediaInfo-bottom clearfix">
+                        <p class="pull-left">每页显示8条信息,共页</p>
+                        <div>
+                            <ul class="pagination"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

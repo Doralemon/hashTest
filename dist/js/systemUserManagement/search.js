@@ -1,0 +1,1 @@
+define(["jquery","common/getPage","systemUserManagement/getData","bootstrap","page"],function(e,a,s){return function(){var t=a(e(".kandao-systemUser")),n=e('.kandao-systemUser input[name="q"]').val(),o=e('.kandao-systemUser select[name="state"]').val();t.json.q=n,t.json.state=o,1==e(".kandao-systemUser table tbody tr").length&&(t.json.page=t.json.page-1||1),s.myAjax(t.json)}});

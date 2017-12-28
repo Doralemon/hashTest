@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>KanDaoBackend</title>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="sass/base.min.css" />
+    <link rel="stylesheet" type="text/css" href="sass/login.min.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico">
+</head>
+
+<body>
+    <header>
+        <img src="img/kandao_logo.png" alt="">
+    </header>
+    <div id="login-container">
+        <h3>看到科技后台管理系统</h3>
+        <div class="login-userInfo">
+            <h4>登录</h4>
+            <form id="kandao-login">
+                <div class="form-group emailBox">
+                    <input type="email" class="form-control" placeholder="邮箱" name="username">
+                    <span class="emailMessage"><b>*</b>&nbsp;邮箱无效</span>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="密码" name="password">
+                </div>
+                <div class="form-group clearfix">
+                    <input type="text" class="form-control pull-left" placeholder="验证字符" style="width:200px" name="code">
+                    <img src="" alt="" class="pull-right kandao-refesh">
+                </div>
+                <div class="clearfix forgetPass">
+                    <div class="pull-right">
+                    <a href="javascript:void(0)">忘记密码?</a>
+                    </div>
+                </div>
+                <button class="btn btn-default btn-block">登录</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <img src="img/kandaobottom.png" alt="" class="logo">
+    </footer>
+</body>
+
+</html>
+
+<script src="js/lib/jquery-2.1.4.js"></script>
+<script src="js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/common/api.js"></script>
+<script type="text/javascript">
+ if(!$('input[name = "username"]').val()||!$('input[name = "password"]').val()){
+    $('input[name = "username"]').val($.cookie('username'));
+    $('input[name = "password"]').val($.cookie('nnnnnn'));
+    }
+    $(".kandao-refesh").attr('src',api() + "users/authcode/111");  
+    $(".kandao-refesh").on('click', function() {
+        var num = Math.ceil(Math.random() * 1000);         
+        $(this).attr('src',api() + "users/authcode/" + num); 
+    })
+    $('input[name = "username"]').on('blur', function() {
+        var username = $(this).val();
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!filter.test(username)) {
+            $('.emailMessage').show();
+            return;
+        } else {
+            $('.emailMessage').hide();
+        }
+    })
+    $("#kandao-login").on('submit', function(e) {
+        e.preventDefault();
+        var username = $('input[name = "username"]').val();
+        var password = $('input[name = "password"]').val();
+        var code = $('input[name = "code"]').val();
+        var cs = getCookie('x-code-session');
+        if(!$.trim(username)||!$.trim(password)||!$.trim(code)){
+            alert("请输入邮箱/密码/验证字符！");
+            return;
+        }
+        function GetJsonData() {
+            var json = {
+                "username": username,
+                "password": password,
+                "code": code,
+                "code_session":cs
+            };
+            return json;
+        }
+        myAjax({
+            url: "users/login",
+            type: 'post',
+            xhrFields: {
+                    withCredentials: true
+            },
+            data:GetJsonData(),       
+        }, function(res) {
+            //本地存储
+            $.cookie('username', username,{expires:7});
+            $.cookie('token', JSON.stringify(res.result.token),{expires:7});
+            location.href = 'index.html';
+        })
+    })
+    function getCookie(c_name) { //获取cookie
+        if (document.cookie.length>0)
+          {
+          c_start=document.cookie.indexOf(c_name + "=")
+          if (c_start!=-1)
+            {
+            c_start=c_start + c_name.length+1
+            c_end=document.cookie.indexOf(";",c_start)
+            if (c_end==-1) c_end=document.cookie.length
+            return unescape(document.cookie.substring(c_start,c_end))
+            }
+          }
+        return ""
+    }
+
+$(".forgetPass").on("click",function(){ //忘记密码
+    var username = $('input[name = "username"]').val();
+    $.cookie('account', username,{expires:7});
+    location.href="forgotLogin.html";
+})
+   
+</script>

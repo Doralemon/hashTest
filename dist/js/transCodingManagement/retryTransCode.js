@@ -1,0 +1,1 @@
+define(["jquery","common/amdApi","common/getPage","transCodingManagement/getData"],function(n,a,e,t){return function(e,t){a.ajax({url:"medias/transcode/"+e+"/"+t+"/restart",type:"post"},function(){alert("开始重新转码！"),n("#transCodeInfo").modal("hide"),n(".transcodingManagement").click()})}});

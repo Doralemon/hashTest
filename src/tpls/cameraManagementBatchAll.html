@@ -1,0 +1,57 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="bactchAll">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">批量生成</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">项目代号</label>
+                        <div class="col-sm-8">
+                            <select class="form-control project_id" name="project_id">
+                                <option value=""></option>
+                                {{each project}}
+                                <option value="{{$value.id}}">{{$value.no}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">生产日期</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control date kandao-date" name="date">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">工厂代号</label>
+                        <div class="col-sm-8">
+                            <select class="form-control factory_id" name="factory_id">
+                                 <option value=""></option>
+                                {{each foctory}}
+                                <option value="{{$value.id}}">{{$value.no}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">生成数量</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control amount" name="amount">
+                        </div>
+                        <label class="col-sm-3 control-label">(<=9999)</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-7">
+                            <button class="btn btn-sm cameraAdd">生成</button>
+                            <button class="btn btn-sm" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

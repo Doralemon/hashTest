@@ -1,0 +1,87 @@
+<ol class="breadcrumb">
+    <li>媒体资源管理</li>
+    <li class="mediaPlayList">播放列表</li>
+    <li class="active">详情</li>
+</ol>
+<div class="kandao-mediaPlayInfo commonMagagement">
+    <div class="mediaPlayInfo-top clearfix">
+        <h3 class="pull-left">播放列表详情</h3>
+        <div class="btnBox pull-right">
+            <button type="button" class="btn btn-default goBack">返回</button>
+            <button type="button" class="btn btn-default infoSave">保存</button>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="infoTopPanel clearfix">
+                <div class="infoTopPanel-left pull-left">
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">ID</span>
+                        <span class="pull-left">{{id}}</span>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">类型</span>
+                        <span class="pull-left">{{m_type}}</span>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">名称</span>
+                        <input type="text" class="form-control pull-left" value="{{name}}" name="name">
+                    </div>
+                </div>
+                <div class="infoTopPanel-right pull-right">
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">创建者</span>
+                        <span>{{owner}}</span>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">创建时间</span>
+                        <span>{{date_created}}</span>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">描述</span>
+                        <textarea class="form-control" rows="3" name="description">{{description}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="infoCenter clearfix">
+        <h3 class="pull-left">栏目详情</h3>
+        <div class="pull-right">
+            <button type="button" class="btn btn-default sort">排序</button>
+            <button type="button" class="btn btn-default addTag">添加栏目</button>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="playInfoContainer">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>栏目</th>
+                            <th>描述</th>
+                            <th>素材数</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr>
+                            <td>热门</td>
+                            <td>一句话刚好就是十个字一句话刚好就是十个字一句话刚好就是十个字一句话刚好就是十个字</td>
+                            <td>5</td>
+                            <td>
+                                <button type="button" class="btn btn-default infoDelete">删除</button>
+                            </td>
+                        </tr>-->
+                    </tbody>
+                </table>
+                <div class="playInfo-bottom clearfix">
+                    <p class="pull-left">共条信息</p>
+                    <div>
+                        <ul class="pagination"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

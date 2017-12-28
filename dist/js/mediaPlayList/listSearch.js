@@ -1,0 +1,1 @@
+define(["jquery","artTemplate","common/amdApi","mediaPlayList/getData","common/getPage","bootstrap","page"],function(t,a,e,i,n){return function(t,a){var n={limit:10,q:t,type:a};e.ajax({url:"medias/playlists",type:"get",json:n},function(t){i.myAjax(n,t)})}});

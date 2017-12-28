@@ -1,0 +1,36 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="PlayAddTag">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group searchBox">
+                        <input type="text">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </div>
+                    <div class="form-group noCloumn">
+                        <label>未选栏目</label>
+                        <div class="firstColumn playColumn">
+                            {{each not_selected_info}}
+                            <span class="sBox" id="{{$value.id}}">{{$value.name}}</span> {{/each}}
+                        </div>
+                    </div>
+                    <div class="form-group selCloumn">
+                        <label>已选栏目</label>
+                        <div class="firstColumn playColumn">
+                            {{each has_selected_info}}
+                            <span class="sBox" id="{{$value.id}}">{{$value.name}}</span> {{/each}}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-block">保存</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

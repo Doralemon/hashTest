@@ -1,0 +1,69 @@
+<ol class="breadcrumb accoutList">
+    <li>首页</li>
+    <li>媒体资源管理</li>
+    <li class="active">播放列表</li>
+</ol>
+<div class="kandao-playList commonMagagement">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="kandao-playList-top row">
+                <form class="form-inline clearfix">
+                    <div class="form-group pull-left">
+                        <label class="sr-only" for="exampleInputAmount">关键词</label>
+                        <div class="input-group serchBox">
+                            <div class="input-group-addon downBox">
+                                <select name="type">
+                                    <option value="">全部</option>
+                                    <option value="video">视频</option>
+                                    <option value="photo">图片</option>
+                                    <option value="live">直播</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" placeholder="关键词" name="q">
+                            <div class="input-group-addon palyListSearch">搜索</div>
+                        </div>
+                    </div>
+                    <div class="form-group pull-right accoutAdd">
+                        <button type="button" class="btn btn-md playAdd">新建</button>
+                    </div>
+                </form>
+            </div>
+            <div class="playSearchContent">
+                <p class="pull-left">总计条信息</p>
+                <table class="table table-striped  table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>名称</th>
+                            <th>描述</th>
+                            <th>类型</th>
+                            <th>文件数</th>
+                            <th>创建者</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr>
+                            <td>KandaoPlayer_APP</td>
+                            <td>一句话刚好就是十个字一句话刚好就是十个字一句话刚好就是十个字一句话刚好就是十个字</td>
+                            <td>视频</td>
+                            <td>5</td>
+                            <td>陈鹏飞</td>
+                            <td>2012-12-12 00:11</td>
+                            <td>
+                                <button type="button" class="btn btn-md btnInfo">详情</button>
+                                <button type="button" class="btn btn-md btnDelete">删除</button>
+                            </td>
+                        </tr>-->
+                    </tbody>
+                </table>
+                <div class="playList-bottom clearfix">
+                    <p class="pull-left">每页显示10条信息,共页</p>
+                    <div>
+                        <ul class="pagination"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

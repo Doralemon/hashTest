@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KanDaoBackend</title>
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jBootsrapPage.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/uploadifive/uploadifive.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fileinput.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/kindeditor/themes/default/default.css" />
+    <link rel="stylesheet" type="text/css" href="./sass/base.min.css?time=2017122614.css" />
+    <link rel="stylesheet" type="text/css" href="./sass/index.min.css?time=2017122614.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico">
+</head>
+
+<body>
+    <div class="kandao-progress text-center">加载中，请稍候...</div>
+    <div class="kandao-contanier" style="display:none">
+        <!--左边侧边栏-->
+        <div class="kandao-aside">
+            <div class="kandao-logo">
+                <img src="./img/kandao_logo.png" alt="">
+            </div>
+            <div class="list-group">
+                <a href="#/index" class="list-group-item glyphicon glyphicon-home home active fatherManagement">首页</a>
+                <div>
+                    <a href="#/media" class="list-group-item glyphicon glyphicon-film mediaManagement fatherManagement">媒体资源管理</a>
+                    <div class="list-group sonList mediaSonList">
+                        <a href="#/media/mediaLibrary" class="list-group-item mediaLibrary">媒体素材库</a>
+                        <a href="#/media/playList" class="list-group-item playList">播放列表</a>
+                        <a href="#/media/transCode" class="list-group-item transcodingManagement">转码管理</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#/customer" class="list-group-item glyphicon glyphicon-user customerManagement  fatherManagement">客户管理</a>
+                    <div class="list-group sonList customerSonList">
+                        <a href="#/customer/account" class="list-group-item accoutManagement">账号管理</a>
+                        <a href="#/customer/sercetKey" class="list-group-item keyManagement">密钥管理</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#/productionVersion" class="list-group-item glyphicon glyphicon-info-sign productionVersionManagement fatherManagement">产品版本管理</a>
+                </div>
+                <div>
+                    <a href="#/product" class="list-group-item glyphicon glyphicon-cog productManagment fatherManagement">生产管理</a>
+                    <div class="list-group sonList productSonList">
+                        <a href="#/product/camera" class="list-group-item cameraManagement">相机管理</a>
+                        <a href="#/product/project" class="list-group-item projectManagement">项目管理</a>
+                        <a href="#/product/factory" class="list-group-item factoryManagement">工厂管理</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#/website" class="list-group-item glyphicon glyphicon-duplicate websiteManagment fatherManagement">官网管理</a>
+                    <div class="list-group sonList  websiteSonList">
+                        <a href="#/website/sample" class="list-group-item sampleManagement" style="display:none">样片管理</a>
+                        <a href="#/website/manuscript" class="list-group-item manuscriptManagement">文稿管理</a>
+                        <div class="manuscriptBox">
+                            <a href="#/website/manuscript/report" class="list-group-item reportManagement">媒体报道管理</a>
+                            <a href="#/website/manuscript/kandaoNews" class="list-group-item kandaoNewsManagement">看到新闻管理</a>
+                        </div>
+                        <a href="#/website/FAQ" class="list-group-item FAQManagement">FAQ管理</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="#/backStage" class="list-group-item glyphicon glyphicon-modal-window backStageManagement fatherManagement">系统后台管理</a>
+                    <div class="list-group sonList systemSonList">
+                        <a href="#/backStage/systemUser" class="list-group-item systemUserManagement">系统用户管理</a>
+                        <a href="#/backStage/roles" class="list-group-item rolesManagement">角色权限管理</a>
+                        <a href="#/backStage/operationLog" class="list-group-item operationLog">操作日志</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--右边内容区域-->
+        <div class="kandao-content">
+            <!--右边上方-->
+            <div class="kandao-content-top">
+                <div class="welInfo">
+                    hello,
+                    <div class="users">
+                        <span></span>
+                        <div class="userSonList text-center">
+                            <a href="#/userBaseInfo" class="list-group-item userBaseInfo active glyphicon glyphicon-file">基础资料</a>
+                            <a href="#/changePass" class="list-group-item changePass glyphicon glyphicon-lock">修改密码</a>
+                        </div>
+                        <b class="caret"></b>
+                    </div>
+                </div>
+                <div class="loginOut glyphicon glyphicon-off"></div>
+            </div>
+            <!--右边主体-->
+            <div class="kandao-contentBody">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="js/lib/require.js" data-main="main"></script>

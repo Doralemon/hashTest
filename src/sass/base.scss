@@ -1,0 +1,52 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    font-size: 12px;
+    table>tbody>tr>td {
+        overflow: hidden;
+        /*超出部分隐藏*/
+        white-space: nowrap;
+        /*不换行*/
+        text-overflow: ellipsis;
+        max-width: 160px;
+    }
+    .btn {
+        border: 1px solid #c9c9c9;
+        color: #4a4a4a;
+        background-color: #fff;
+        &:hover {
+            background-color: #233646;
+            color: #dbdba9;
+        }
+        &:active {
+            background-color: #211528;
+            color: #dbdba9;
+        }
+    }
+    .btn.disable {
+        background-color: #233646;
+        color: #717171;
+    }
+    .commonMagagement {
+        padding: 10px;
+        .form-control {
+            height: 36px;
+        }
+    }
+    hr {
+        margin: 10px 0;
+    }
+    .form-group {
+        margin-bottom: 8px;
+    }
+    select {
+        max-width: 200px;
+        min-width: 60px;
+        outline: none;
+    }
+    input {
+        outline: none;
+    }
+}

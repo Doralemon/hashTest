@@ -1,0 +1,1670 @@
+          $kandaoBlack:#23232F;
+            /*弹框及公共样式*/
+            
+            body {
+                min-width: 1300px;
+                font-size: 14px;
+                .kandao-progress{
+                    font-weight: 900;
+                    margin-top:200px;
+                }
+                table>thead>tr>th {
+                    text-align: center;
+                }
+                table>tbody>tr>td{
+                    a{
+                        color:#000;
+                    }
+                }
+                .page-header {
+                    border-bottom: none;
+                    margin: 0;
+                }
+                span.ch,
+                span.en {
+                    width: 22px;
+                    height: 18px;
+                    border: 1px solid #ccc;
+                    text-align: center;
+                    cursor: pointer;
+                    &.active {
+                        background-color: #41C7DB;
+                    }
+                }
+                span.ch {
+                    border-right: none;
+                }
+                textarea.textEn {
+                    display: none;
+                }
+                .commonBox {
+                    position: relative;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    color: #ccc;
+                    height: 24px;
+                    padding: 3px 6px;
+                    padding-right: 20px;
+                    margin-right: 5px;
+                    margin-bottom: 5px;
+                    span {
+                        position: absolute;
+                        width: 20px;
+                        height: 24px;
+                        text-align: center;
+                        line-height: 20px;
+                        right: 0px;
+                    }
+                }
+                .sBox {
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    padding: 4px 12px;
+                    height: 24px;
+                    margin-right: 10px;
+                    margin-bottom: 5px;
+                    cursor: pointer;
+                    line-height: 15px;
+                    &.active {
+                        color: #41C7DB;
+                        border: 1px solid #41C7DB;
+                    }
+                }
+                .modal-content .btn {
+                    margin-right: 10px;
+                }
+                .commonadd .modal-body {
+                    min-height: 350px;
+                }
+                .commonedit {
+                    .modal-body {
+                        min-height: 420px;
+                    }
+                    .modal-content {
+                        min-width: 360px;
+                    }
+                }
+                .form-group {
+                    margin-bottom: 8px;
+                }
+                .form-control-static {
+                    padding: 0;
+                }
+                textarea {
+                    resize: none;
+                }
+                .uploadifive-queue-item {
+                    background-color: #fff;
+                    border-bottom: none;
+                }
+                /*相机管理编辑模态框的样式*/
+                #cameraEdit {
+                    .modal-body {
+                        padding-top: 2px;
+                        min-height: 610px;
+                    }
+                    .table>tbody>tr>td {
+                        border-top: none;
+                       
+                    }
+                }
+                /*客户管理账户管理*/
+                #accoutAdd {
+                    .modal-body {
+                        min-height: 540px;
+                    }
+                }
+                /*产品版本管理的新增框*/
+                #addVersion {
+                    .modal-body {
+                        min-height: 360px;
+                    }
+                }
+                #editVersion {
+                    .modal-body {
+                        min-height: 500px;
+                    }
+                }
+                #addVersionSon {
+                    .modal-content {
+                        min-height: 360px;
+                        min-width: 490px;
+                    }
+                    .uploadFile {
+                        input {
+                            margin-left: 20px;
+                        }
+                        .afterUp {
+                            .btn {
+                                padding: 0 5px;
+                            }
+                        }
+                    }
+                }
+                #editVersionSon {
+                    .modal-body {
+                        min-height: 540px;
+                    }
+                }
+                .disabledCli {
+                    pointer-events: none;
+                    background-color: #ccc;
+                    // cursor: not-allowed;
+                }
+                #deleteMassage {
+                    text-align: center;
+                    h5 {
+                        padding: 10px 0;
+                    }
+                    .glyphicon {
+                        font-size: 32px;
+                        color: red;
+                    }
+                    .modal-dialog {
+                        margin: 240px auto;
+                    }
+                }
+                #loading {
+                    margin-top: 200px;
+                    .modal-body {
+                        width: 300px;
+                        height: 240px;
+                    }
+                    img {
+                        display: block;
+                        margin: 70px auto;
+                        width: 64px;
+                        height: 64px;
+                    }
+                }
+                /*上传文件插件的样式*/
+                .beforeUp,
+                .resourceFile {
+                    font-size: 12px;
+                    color: $kandaoBlack;
+                    height: 28px;
+                    min-width: 360px;
+                    margin-bottom: 10px;
+                    input {
+                        height: 24px;
+                        width: 60px;
+                    }
+                    .uploadifive-button {
+                        height: 100% !important;
+                        text-align: center !important;
+                        width: 84px !important;
+                        line-height: 24px !important;
+                        background-color: #eee !important;
+                        border: 1px solid #ccc !important;
+                        float: left;
+                        padding: 4px 6px;
+                        border-radius: 5px;
+                        font-size: 14px;
+                        input {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+                /*系统用户管理的新增框||编辑框*/
+                #systemUserAdd,
+                #systemUserEdit {
+                    .modal-content {
+                        height: 440px;
+                    }
+                    .roleManament {
+                        select {
+                            width: 180px;
+                        }
+                        .addRoles {
+                            margin-left: 10px;
+                        }
+                    }
+                    .selectedRoles {
+                        padding: 10px;
+                        border: 1px dashed #999;
+                        width: 320px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        min-height: 30px;
+                        max-height: 92px;
+                        overflow: auto;
+                        .roleBox {
+                            border: 1px solid #999;
+                            height: 30px;
+                            line-height: 30px;
+                            padding-left: 5px;
+                            margin-right: 5px;
+                            margin-bottom: 5px;
+                            span {
+                                padding-left: 5px;
+                                padding-right: 5px;
+                                color: #ccc;
+                            }
+                        }
+                    }
+                }
+                /*角色权限管理新增框||编辑框*/
+                #systemRoleAdd,
+                #systemRoleEdit {
+                    .modal-content {
+                        height: 600px;
+                        padding: 20px;
+                    }
+                    .divideLine {
+                        width: 100%;
+                        border-top: 1px dashed #ccc;
+                        margin: 20px 0;
+                    }
+                    .kandaoRolesBox {
+                        width: 100%;
+                        select:focus option:checked {
+                            color: white;
+                        }
+                        select {
+                            height: 240px;
+                            margin-bottom: 10px;
+                            padding: 0;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                            option {
+                                height: 30px;
+                                font-size: 12px;
+                                padding-top: 5px;
+                                text-align: center;
+                                border-bottom: 1px solid #999;
+                                &:checked {
+                                    background-color: $kandaoBlack;
+                                }
+                            }
+                        }
+                    }
+                    .ptionalRoles-top {
+                        padding-right: 70px;
+                    }
+                    .selectedPermissions-top {
+                        padding-right: 10px;
+                    }
+                    .selectedPermissions-top {
+                        margin-bottom: 12px;
+                    }
+                    .ptionalRoles {
+                        width: 50%;
+                        padding-right: 20px;
+                        .rolesSearch {
+                            position: relative;
+                        }
+                        b {
+                            color: #ccc;
+                            position: absolute;
+                            left: 10px;
+                            top: 6px;
+                        }
+                        input {
+                            width: 200px;
+                            height: 24px;
+                            border-radius: 24px;
+                            border: 1px solid #ccc;
+                            margin-bottom: 10px;
+                            padding-left: 30px;
+                        }
+                    }
+                    .selectedPermissions {
+                        width: 50%;
+                        padding-left: 70px;
+                        select {
+                            height: 260px;
+                        }
+                    }
+                    .selectAll,
+                    .delAll {
+                        cursor: pointer;
+                        position: relative;
+                        &.disabled {
+                            color: #ccc;
+                            cursor: not-allowed;
+                        }
+                        &::before {
+                            position: absolute;
+                            top: 2px;
+                        }
+                    }
+                    .selectAll {
+                        &::before {
+                            right: -15px;
+                        }
+                    }
+                    .delAll {
+                        &::before {
+                            left: -15px;
+                        }
+                    }
+                }
+                /*媒资-素材库新增弹框*/
+                #addMedia {
+                    .fileinput-preview {
+                        max-width: 200px;
+                        max-height: 150px;
+                    }
+                    #mediaAddImg {
+                        img {
+                            height: 140px;
+                        }
+                    }
+                    #exampleInputUpload {
+                        margin-left: 16px;
+                    }
+                    #mediaAddFrom {
+                        width: 380px;
+                        margin: 0 auto;
+                        margin-top: 20px;
+                        select.resorce {
+                            width: 100px;
+                        }
+                        #tagSel {
+                            max-width: none;
+                        }
+                        .input-group {
+                            width: 310px;
+                            right: -15px;
+                        }
+                        .cloumnAdd,
+                        .tagAdd {
+                            cursor: pointer;
+                        }
+                        .cloumnAddBox,
+                        .tagAddBox {
+                            margin-left: 70px;
+                            margin-bottom: 5px;
+                        }
+                        .cform-group {
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+                /*媒资-栏目管理弹框*/
+                .cloumnManagement,
+                #transCoding {
+                    .modal-header {
+                        border-bottom: none;
+                        padding-top: 8px;
+                        padding-bottom: 0;
+                    }
+                }
+                .kandaoNewsInfo{
+                    .modal-content {
+                        max-height: 700px;
+                        overflow-y: scroll;
+                    }
+                }
+                .cloumnManagement {
+                    .modal-content {
+                        height: 700px;
+                        overflow-y: scroll;
+                    }
+                    .cloumnManagement-top {
+                        border-bottom: 1px dashed #ccc;
+                        .searchBox {
+                            position: relative;
+                            input {
+                                width: 180px;
+                                padding-left: 30px;
+                            }
+                            span.glyphicon-search {
+                                position: absolute;
+                                left: 10px;
+                                top: 10px;
+                                font-size: 14px;
+                                color: #ccc;
+                            }
+                        }
+                        .tagstoAdd {
+                            margin-top: 20px;
+                            margin-bottom: 20px;
+                            max-height: 90px;
+                            overflow: auto;
+                        }
+                    }
+                    .cloumnManagement-bottom {
+                        margin-top: 20px;
+                        h4 {
+                            font-weight: 900;
+                        }
+                        .bottomInfo {
+                            width: 50%;
+                            padding-right: 20px;
+                            border-right: 1px dashed #ccc;
+                            form {
+                                input,
+                                textarea {
+                                    width: 180px;
+                                    margin-right: 6px;
+                                }
+                            }
+                            .scaleImg {
+                                position: relative;
+                                img {
+                                    display: block;
+                                    width: 320px;
+                                    height: 180px;
+                                }
+                            }
+                        }
+                        .bottomMateial {
+                            width: 50%;
+                            padding-left: 20px;
+                            .bottomMateial-top {
+                                select.resorce {
+                                    width: 80px;
+                                    margin-left: 10px;
+                                }
+                                .orderByTime {
+                                    position: relative;
+                                    right: 30px;
+                                    top: 20px;
+                                    cursor: pointer;
+                                    &:hover {
+                                        color: #41C7DB;
+                                        text-decoration: underline;
+                                    }
+                                    &::before {
+                                        position: absolute;
+                                        right: -20px;
+                                        top: 2px;
+                                    }
+                                }
+                            }
+                            .bottomMateial-bottom {
+                                margin-top: 10px;
+                                ul {
+                                    border: 1px solid #ccc;
+                                    border-radius: 5px;
+                                    overflow: auto;
+                                    height: 340px;
+                                    li:first-child {
+                                        background-color: #999;
+                                    }
+                                    li {
+                                        position: relative;
+                                        height: 34px;
+                                        .glyphicon-align-justify {
+                                            left: 350px;
+                                            top: -26px;
+                                            cursor: move;
+                                        }
+                                        span:first-child {
+                                            width: 100px;
+                                        }
+                                        span:nth-child(2) {
+                                            width: 60px;
+                                        }
+                                        span:nth-child(3) {
+                                            width: 120px;
+                                        }
+                                        span {
+                                            display: inline-block;
+                                            margin-right: 20px;
+                                            overflow: hidden;
+                                            /*超出部分隐藏*/
+                                            white-space: nowrap;
+                                            /*不换行*/
+                                            text-overflow: ellipsis
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .btnBox {
+                        margin-top: 10px;
+                        .btn {
+                            padding: 8px 60px;
+                        }
+                    }
+                }
+                .btn-danger {
+                    color: #fff;
+                    background-color: #d9534f;
+                    border-color: #d43f3a;
+                }
+                /*媒资-播放列表新增弹框*/
+                #playListAdd {
+                    .modal-content {
+                        height: 300px;
+                    }
+                    form {
+                        width: 240px;
+                        margin: 0 auto;
+                    }
+                    select {
+                        width: 120px;
+                    }
+                }
+                /*媒资-分组排序弹框*/
+                #playListSort {
+                    .modal-content {
+                        height: 480px;
+                    }
+                    ul {
+                        height: 400px;
+                        overflow: auto;
+                        border: 1px solid #ccc;
+                        border-radius: 4px;
+                        li {
+                            position: relative;
+                            &::before {
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                cursor: move;
+                            }
+                            &:hover {
+                                background-color: #41C7DB;
+                            }
+                        }
+                    }
+                }
+                /*媒资-添加栏目*/
+                #PlayAddTag {
+                    form {
+                        position: relative;
+                        .searchBox {
+                            position: absolute;
+                            top: -15px;
+                            right: 5px;
+                            span.glyphicon-search {
+                                position: absolute;
+                                top: 7px;
+                                left: 8px;
+                                color: #ccc;
+                            }
+                            input {
+                                height: 24px;
+                                border-radius: 24px;
+                                padding-left: 20px;
+                                border: 1px solid #ccc;
+                            }
+                        }
+                        .noCloumn {
+                            border-bottom: 1px dashed #ccc;
+                            margin-top: 20px;
+                        }
+                    }
+                    .firstColumn {
+                        min-height: 50px;
+                        max-height: 200px;
+                        overflow: auto;
+                    }
+                }
+                /*媒资-初始转码弹框*/
+                #codeInit{
+                    .modal-body{
+                        height: 500px;
+                        overflow: auto;
+                    }
+                    .codeInitContent{
+                        margin-top:10px;
+                    }
+                }
+                #codeInit,
+                #transCodeInfo {
+                    thead {
+                        background-color: #c9c9c9;
+                    }
+                    tbody {
+                        td {
+                            padding: 4px; 
+                        }
+                        .btn {
+                            padding: 2px 12px;
+                            font-size: 12px;
+                        }
+                    }
+                }
+                /*媒体报道编辑弹框*/
+                #reportEdit,
+                #kandaoNewsEdit,
+                .websiteDialog {
+                    .createInfo {
+                        margin-left: 110px;
+                    }
+                }
+                /*文稿管理下弹框公共样式*/
+                #kandaoNewscloumnManagement,
+                .websiteDialog {
+                    .reportFrom {
+                        margin-right: 60px;
+                    }
+                    .reportUpload {
+                        margin-left: 0px;
+                        img {
+                            height: 90px;
+                            width: 160px;
+                        }
+                    }
+                    .newsEditor {
+                        margin-left: 120px;
+                    }
+                }
+                .chooseLang {
+                    margin-left: 40px;
+                    margin-top: 30px;
+                    position: relative;
+                    height: 40px;
+                    label {
+                        padding-left: 60px;
+                    }
+                    .language {
+                        position: absolute;
+                        left: 124px;
+                        select {
+                            width: 100px;
+                        }
+                    }
+                }
+                .newslang{
+                    margin-left: 62px;
+                    .language {
+                        left: 133px;
+                    }
+                }
+                #reportAddFromEn,
+                #reportEditFromEn,
+                #newsAddFromEn,
+                #kandaoNewsEditFromEn {
+                    display: none;
+                }
+                #newsAdd,#kandaoNewsEdit,#kandaoNewsInfo{
+                    .modal-content {
+                         height: 600px;
+                         overflow: auto;
+                     }
+                }
+                #kandaoNewsInfo{
+                    .modal-content {
+                         height: 600px;
+                         overflow-y: auto;
+                     }
+                     video{
+                         width:320px;
+                     }
+                    }
+                /*看到新闻管理详情弹框*/          
+                    .modal-header {
+                        border-bottom: none;
+                    }
+                /*看到新闻管理栏目管理弹框*/
+                .cloumnNews {
+                    .modal-body {
+                        padding: 20px 40px;
+                    }
+                    .searchBox {
+                        position: relative;
+                        input {
+                            width: 200px;
+                            padding-left: 30px;
+                        }
+                        span {
+                            position: absolute;
+                            top: 10px;
+                            left: 10px;
+                            color: #999;
+                        }
+                    }
+                    .cloumnManagement-top {
+                        border-bottom: 1px dashed #999;
+                        .tagstoAdd {
+                            max-height: 80px;
+                            margin-bottom: 20px;
+                            overflow: auto;
+                        }
+                    }
+                    .newsCloumn-bottom {
+                        .form-group {
+                            margin-right: 20px;
+                        }
+                        input,
+                        textarea {
+                            width: 220px;
+                        }
+                    }
+                }
+            }
+            
+            .kandao-contanier {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                /*左边侧边栏*/
+                .kandao-aside {
+                    z-index: 100;
+                    position: fixed;
+                    width: 160px;
+                    height: 100%;
+                    background-color: $kandaoBlack;
+                    .kandao-logo {
+                        height: 40px;
+                        background-color: #0D0C11;
+                        margin-bottom: 3px;
+                        img {
+                            display: block;
+                            padding-top: 20px;
+                            padding-left: 10px;
+                        }
+                    }
+                    .manuscriptBox {
+                        text-align: right;
+                        font-size: 12px;
+                        display: none;
+                    }
+                    .list-group-item.active,
+                    .list-group-item.active:focus,
+                    .list-group-item.active:hover {
+                        background-color: #0D0C11;
+                        border: #0D0C11;
+                        border-radius: 0;
+                        &:a {
+                            color: #fff;
+                        }
+                    }
+                    .sonList .list-group-item.active,
+                    .sonList .list-group-item.active:focus,
+                    .sonList .list-group-item.active:hover {
+                        &:a {
+                            color: #fff;
+                        }
+                    }
+                    .home {
+                        border-top: none !important;
+                    }
+                    .list-group-item {
+                        background-color: $kandaoBlack;
+                        border: 1px solid #393945;
+                        border-radius: 0;
+                        border-left: none;
+                    }
+                    a.list-group-item {
+                        color: #86858D;
+                        &:before {
+                            padding-right: 5px;
+                        }
+                    }
+                    a.list-group-item:focus,
+                    a.list-group-item:hover,
+                    {
+                        background-color: #0D0C11;
+                        color: #BBBBC5;
+                    }
+                    .sonList {
+                        margin-bottom: 0;
+                        text-align: center;
+                        display: none;
+                    }
+                    .show {
+                        display: block;
+                    }
+                    .hide {
+                        display: none;
+                    }
+                    .sonList .list-group-item {
+                        border: 0;
+                    }
+                }
+                /*上面欢迎栏*/
+                .kandao-content-top {
+                    z-index: 99;
+                    position: fixed;
+                    top: 0;
+                    height: 40px;
+                    right: 0;
+                    left: 160px;
+                    background-color: $kandaoBlack;
+                    padding-right: 60px;
+                    .welInfo {
+                        height: 40px;
+                        text-align: right;
+                        line-height: 40px;
+                        color: #ccc;
+                        margin-bottom: 0px;
+                        position: absolute;
+                        right: 200px;
+                        .users {
+                            cursor: pointer;
+                            span {
+                                position: absolute;
+                                text-align: left;
+                                left: 34px;
+                                top: 0px;
+                                width:140px;
+                                overflow: hidden;
+                                text-overflow:ellipsis;
+                                white-space: nowrap;
+                            }
+                            b {
+                                position: absolute;
+                                right: -150px;
+                                top: 20px;
+                            }
+                        }
+                    }
+                    .userSonList {
+                        display: none;
+                        position: absolute;
+                        top: 38px;
+                        right: -120px;
+                        z-index: 3;
+                        a {
+                            background-color: $kandaoBlack;
+                            color: #ccc;
+                            width: 90px;
+                            border-radius: 0;
+                            &::before {
+                                padding-right: 5px;
+                            }
+                        }
+                        .list-group-item {
+                            border: none;
+                            padding: 5px;
+                            &.active {
+                                background-color: #0D0C11;
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .loginOut {
+                        width: 60px;
+                        height: 40px;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        text-align: center;
+                        color: red;
+                        font-size: 20px;
+                        line-height: 40px;
+                        cursor: pointer;
+                    }
+                }
+                /*右边内容区域*/
+                .kandao-content {
+                    height: 100%;
+                    position: absolute;
+                    left: 160px;
+                    right: 0px;
+                    background-color: #F2F2F2;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    .pagination>li {
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                    /*下面主体内容部分*/
+                    .kandao-contentBody {
+                        padding-top: 40px;
+                        .breadcrumb>li+li:before {
+                            padding: 0 5px;
+                            color: #ccc;
+                            content: ">";
+                        }
+                        .breadcrumb {
+                            background-color: #fff;
+                            margin-bottom: 0;
+                            li {
+                                cursor: pointer;
+                            }
+                        }
+                        table th,
+                        table td {
+                            padding: 0;
+                            width: 60px;
+                            text-align: center;
+                            line-height: 34px;
+                        }
+                        table td:last-child {
+                            span {
+                                display: inline-block;
+                                margin-right: 10px;
+                                cursor: pointer;
+                            }
+                        }
+                        div.checkbox {
+                            margin: 0;
+                            padding: 0px 5px;
+                            input {
+                                margin-top: 10px;
+                            }
+                        }
+                        .btn {
+                            padding: 3px 12px;
+                            margin-left: 5px;
+                            font-size: 12px;
+                        }
+                        .newAdd {
+                            padding: 6px 20px;
+                            margin-right: 20px;
+                        }
+                        p {
+                            color: #4A4A4A;
+                        }
+                        .serchBox {
+                            width: 291px;
+                            margin-left: 12px;
+                        }
+                        .downBox {
+                            padding: 0;
+                            select {
+                                border: none;
+                                height: 32px;
+                                background-color: #fff;
+                            }
+                        }
+                        .reserchBox {
+                            margin-left: 0;
+                        }
+                        .kandao-secrentKey,
+                        .workKey,
+                        .noWorkKey {
+                            table td:first-child {
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                            }
+                            table th {
+                                font-size: 14px;
+                                font-weight: 500;
+                            }
+                        }
+                        /*首页*/
+                        .home {
+                            overflow: hidden;
+                            h1 {
+                                margin-top: 250px;
+                                text-shadow: #666 5px 5px 5px;
+                            }
+                            img {
+                                margin-top: 320px;
+                            }
+                        }
+                        /*媒资-媒体素材库*/
+                        a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
+                            border-color: #ddd;
+                            text-decoration: none;
+                        }
+                        .imgState {
+                            margin-right: 24px;
+                            &.SU,
+                            &.ON,
+                            &.UP,
+                            &.DI,
+                            &.In,
+                            &.ON {
+                                color: #00CC00;
+                            }
+                            &.OF,
+                            &.TF,
+                            &.DF,
+                            &.IF {
+                                color: #FF0000;
+                            }
+                            &.WT,
+                            &.TI,
+                            &.QU {
+                                color: #FF9900;
+                            }
+                        }
+                        .kandao-mediaManagement,
+                        .kandao-news,
+                        .kandaoWebsite {
+                            .panel-body {
+                                padding: 20px 30px;
+                            }
+                            .kandao-mediaLibrary-top {
+                                position: relative;
+                                .mediaTop-left {
+                                    width: 50px;
+                                    border-right: 1px solid #eee;
+                                    margin-right: 20px;
+                                    color: #999;
+                                }
+                                .mediaTop-right {
+                                    width: 800px;
+                                }
+                                .columnList {
+                                    margin-top: 6px;
+                                }
+                                .mediaType {
+                                    margin-top: 80px;
+                                }
+                                .searchBox {
+                                    margin-top: 10px;
+                                    margin-left: -12px;
+                                }
+                                .firstColumn {
+                                    height: 90px;
+                                    overflow: auto;
+                                }
+                                .secondColumn,
+                                {
+                                    margin-top: 10px;
+                                }
+                                .keyWord {
+                                    margin-top: 24px;
+                                }
+                                .handle {
+                                    margin-top: 34px;
+                                }
+                                .mediaSearch {
+                                    margin-left: 0px;
+                                    margin-top: 20px;
+                                }
+                                .columnManagament {
+                                    color: #41C7DB;
+                                    position: absolute;
+                                    top: 0px;
+                                    right: 20px;
+                                    cursor: pointer;
+                                    text-decoration: underline;
+                                }
+                            }
+                            .actionCenter {
+                                margin-top: 10px;
+                                margin-bottom: 10px;
+                                .actionLeft {
+                                    margin-left: 20px;
+                                    color: #41C7DB;
+                                }
+                                .selectAll {
+                                    margin-right: 10px;
+                                    cursor: pointer;
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                                .clear {
+                                    cursor: pointer;
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                                .actionRight {
+                                    margin-right: 20px;
+                                }
+                                .columnOperation {
+                                    position: relative;
+                                    .cloumnListAdd,
+                                    .cloumnListremove {
+                                        position: absolute;
+                                        top: 0px;
+                                        left: -300px;
+                                        background-color: #fff;
+                                        width: 300px;
+                                        height: 200px;
+                                        overflow: auto;
+                                        border: 1px solid #ccc;
+                                        z-index: 6;
+                                        padding: 10px;
+                                        display: none;
+                                        border-radius: 5px;
+                                        .sBox {
+                                            line-height: 15px;
+                                        }
+                                    }
+                                    .cloumnListremove {
+                                        top: 32px;
+                                    }
+                                }
+                            }
+                            .mediaContainer {
+                                margin-top: 10px;
+                                .mediaBigBox{
+                                    margin-bottom:20px;
+                                }
+                                .thumbnail {
+                                    color:#000;
+                                    height: 380px;
+                                    box-shadow: 5px 5px 5px 0px #ccc;
+                                    transition: all .5s;
+                                    position: relative;
+                                    cursor: pointer;
+                                    margin-bottom:0;
+                                    &:hover {
+                                        outline: none;                                    
+                                        transform: scale(1.01);
+                                    }
+                                    .checkbox-inline {
+                                        z-index: 5;
+                                    }
+                                }
+                                .coverBox {
+                                    width: 100%;
+                                    height: 100%;
+                                    background-color: rgba(0, 0, 0, 0.3);
+                                    z-index: 1;
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    display: none;
+                                }
+                                img {
+                                    display: block;
+                                    height: 180px;
+                                    width: 100%;
+                                }
+                                .title {
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                }
+                                .imgTop {
+                                    height: 30px;
+                                    padding: 6px 6px;
+                                }
+                                .tags {
+                                    height: 80px;
+                                    margin-top: 10px;
+                                    padding-top: 10px;
+                                    border-top: 1px solid #eee;
+                                    .specificTag {
+                                        display: inline-block;
+                                        height: 24px;
+                                        border-radius: 24px;
+                                        padding-left: 12px;
+                                        padding-right: 12px;
+                                        border: 1px solid #ccc;
+                                        line-height: 24px;
+                                        margin-right: 5px;
+                                        margin-top: 5px;
+                                    }
+                                }
+                            }
+                        }
+                        /*媒资-素材库||播放列表详情*/
+                        .kandao-mediaLibraryInfo,
+                        .kandao-mediaPlayInfo {
+                            .title {
+                                font-size: 14px;
+                                font-weight: 500px;
+                                width: 100px;
+                            }
+                            .infodiv {
+                                margin-top: 10px;
+                                .input-group {
+                                    width: 250px;
+                                }
+                            }
+                            .bigTagBox,
+                            .bigCloumnBox {
+                                margin-left: 100px;
+                            }
+                            .mediaLibraryInfo-top,
+                            .mediaPlayInfo-top,
+                            .infoCenter {
+                                padding: 10px;
+                                h3 {
+                                    margin: 0px;
+                                }
+                            }
+                            .infoTopPanel {
+                                height: 340px;
+                                .infoTopPanel-left,
+                                .infoTopPanel-right {
+                                    width: 50%;
+                                    padding-right: 100px;
+                                    padding-left: 20px;
+                                    input,
+                                    textarea {
+                                        width: 250px;
+                                        font-size: 12px;
+                                    }
+                                    textarea {
+                                        height: 72px;
+                                    }
+                                    .tagAdd,
+                                    .cloumnAdd {
+                                        cursor: pointer;
+                                    }
+                                }
+                                .infoTopPanel-right {
+                                    .scaleImgBox {
+                                        position: relative;
+                                        img {
+                                            display: block;
+                                            width: 320px;
+                                            height: 180px;
+                                        }
+                                        .reupload,
+                                        .imgDelete {
+                                            position: absolute;
+                                            top: 0px;
+                                        }
+                                        .imgDelete {
+                                            top: 35px;
+                                        }
+                                    }
+                                }
+                            }
+                            .infoCenter {
+                                padding-top: 0px;
+                            }
+                            .linkContainer {
+                                thead {
+                                    background-color: #ccc;
+                                }
+                                .infoView {
+                                    &:hover {
+                                        background-color: #233646;
+                                        color: #dbdba9;
+                                        text-decoration: none;
+                                    }
+                                    color: #4A4A4A;
+                                }
+                            }
+                        }
+                        /*媒资-播放列表*/
+                        .kandao-playList {
+                            .kandao-playList-top {
+                                .playAdd {
+                                    margin-right: 15px;
+                                }
+                            }
+                            .palyListSearch {
+                                cursor: pointer;
+                            }
+                            .playSearchContent {
+                                margin-top: 10px;
+                            }
+                        }
+                        /*媒资-播放列表详情*/
+                        .kandao-mediaPlayInfo {
+                            .infoTopPanel {
+                                height: 160px;
+                            }
+                        }
+                        /*媒资-转码管理*/
+                        .kandao-transCodingManagement {
+                            .transCodingTop {
+                                margin: 10px;
+                                h3 {
+                                    margin: 0;
+                                }
+                                .searchBox {
+                                    position: relative;
+                                    .transSearch {
+                                        position: relative;
+                                    }
+                                    .search {
+                                        height: 24px;
+                                        border: 1px solid #ccc;
+                                        border-radius: 24px;
+                                        padding-left: 24px;
+                                    }
+                                    span.glyphicon-search {
+                                        position: absolute;
+                                        top: 7px;
+                                        left: 10px;
+                                        color: #ccc;
+                                    }
+                                }
+                                .initSet {
+                                    position: absolute;
+                                    left:-100px;
+                                    color: #41C7DB;
+                                    cursor: pointer;
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+                        /*客户管理账号管理*/
+                        .kandao-accout {
+                            .kandao-accout-top {
+                                margin-bottom: 10px;
+                            }
+                            .table span {
+                                // color: #9FC8DC;
+                                font-weight: 900;
+                                cursor: pointer;
+                            }
+                            .accoutAdd {
+                                margin-right: 20px;
+                            }
+                        }
+                        /*客户管理账号管理详情*/
+                        .kandao-info-top {
+                            margin-top: 10px;
+                        }
+                        .kandao-info {
+                            .form-group {
+                                width: 360px;
+                            }
+                            .kandao-info-body {
+                                display: flex;
+                                /*账号管理详情左边部分*/
+                                .kandao-info-body-left {
+                                    width: 400px;
+                                    border-right: 2px solid #E6E6E6;
+                                    margin-right: 40px;
+                                }
+                                /*账号管理详情右边部分*/
+                                .kandao-info-body-right {
+                                    flex: 1;
+                                    margin-bottom: 10px;
+                                    .infoWords {
+                                        width: 200px;
+                                    }
+                                    .btn-add {
+                                        padding: 7px 16px;
+                                    }
+                                    .pinOptions {
+                                        margin-top: 10px;
+                                        display: flex;
+                                        flex-wrap: wrap;
+                                        max-height: 160px;
+                                        overflow: auto;
+                                        .pinBox {
+                                            position: relative;
+                                            width: 220px;
+                                            height: 32px;
+                                            border: 1px solid #CDCDCD;
+                                            margin-right: 10px;
+                                            margin-bottom: 10px;
+                                            padding-left: 5px;
+                                            line-height: 32px;
+                                            font-size: 14px;
+                                            color: #999;
+                                            overflow: hidden;
+                                            span {
+                                                font-size: 14px;
+                                                position: absolute;
+                                                height: 100%;
+                                                right: 5px;
+                                                top: 0px;
+                                                cursor: pointer;
+                                                color: #999;
+                                                background-color: #fff;
+                                                &::before {
+                                                    line-height: 32px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .kandao-live {
+                                        margin-top: 15px;
+                                    }
+                                    .des {
+                                        font-size: 14px;
+                                    }
+                                }
+                                .kandaoinfo-right-bottom {
+                                    margin-top: 15px;
+                                    width: 500px;
+                                    label {
+                                        font-size: 14px;
+                                        font-weight: 400;
+                                    }
+                                    input {
+                                        width: 320px;
+                                    }
+                                }
+                            }
+                            .kandao-info-bottom {
+                                width: 800px;
+                                height: 160px;
+                                border-top: 2px solid #E6E6E6;
+                                padding-top: 10px;
+                            }
+                        }
+                        /*账号管理密钥*/
+                        .kandao-top-info {
+                            font-size: 14px;
+                            border-bottom: 1px solid #E5E5E5;
+                            padding-bottom: 10px;
+                            span {
+                                margin-right: 20px;
+                            }
+                        }
+                        .kandao-secrentKey-top {
+                            margin-bottom: 10px;
+                        }
+                        .btnIce,
+                        .accoutSearch {
+                            cursor: pointer;
+                        }
+                        .accoutStatus {
+                            margin-left: 20px;
+                        }
+                        /*产品版本管理*/
+                        .kandao-version-top {
+                            form {
+                                .leftInput {
+                                    margin-right: 40px;
+                                }
+                            }
+                            .softwaresSearch {
+                                cursor: pointer;
+                            }
+                            .productVersionSearchContent {
+                                span {
+                                    display: block;
+                                    margin-left: 10px;
+                                }
+                            }
+                        }
+                        .kandao-versionManagement {
+                            /*产品版本管理版本管理*/
+                            .productInfo {
+                                width: 100%;
+                                border: 1px solid #ddd;
+                                min-height: 200px;
+                                padding: 30px;
+                                font-size: 14px;
+                                .productInfo-left {
+                                    width: 50%;
+                                    padding-right: 180px;
+                                    .infoDes {
+                                        width: 56%;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        display: -webkit-box;
+                                        -webkit-line-clamp: 2;
+                                        -webkit-box-orient: vertical;
+                                    }
+                                }
+                                .productInfo-right {
+                                    width: 50%;
+                                }
+                                span {
+                                    display: inline-block;
+                                    min-width: 130px;
+                                }
+                            }
+                            .btn-md {
+                                margin-top: 15px;
+                            }
+                        }
+                        /*生产管理相机管理*/
+                        .camera {
+                            padding: 10px;
+                            .camraserach {
+                                padding: 4px 8px;
+                            }
+                            .cameraList-top {
+                                margin-bottom: 10px;
+                                .kandao-reset {
+                                    font-weight: 900;
+                                    cursor: pointer;
+                                }
+                                .input-group-addon span {
+                                    cursor: pointer;
+                                }
+                                .form-control {
+                                    height: 28px;
+                                    font-size: 12px;
+                                    padding: 3px;
+                                }
+                                .btn-group-xs>.btn,
+                                .btn-xs:nth-of-type(1) {
+                                    border-radius: 0px 3px 3px 0px;
+                                }
+                                .btn-group-xs>.btn,
+                                .btn-xs:nth-of-type(2) {
+                                    border-right: none;
+                                    border-radius: 3px 0 0 3px;
+                                }
+                            }
+                            .camera-info {
+                                // margin-top: 20px;
+                                padding: 10px 40px;
+                            }
+                        }
+                        /*生产管理项目管理*/
+                        div.input-group-addon.projectserach {
+                            padding: 0px 12px;
+                            height: 32px;
+                            font-size: 14px;
+                        }
+                        .kandao-project-top {
+                            margin-bottom: 6px;
+                            span {
+                                cursor: pointer;
+                            }
+                        }
+                        /*个人中心*/
+                        .panel {
+                            margin-right: 5px;
+                            margin-left: 5px;
+                        }
+                        a.btnBaseInfo,
+                        a.btnChangePass {
+                            display: inline-block;
+                            padding: 5px;
+                            border-radius: 0;
+                            margin-right: 0;
+                            margin-left: -3px;
+                        }
+                        .personInfo {
+                            width: 260px;
+                            margin: 0 auto;
+                            form {
+                                width: 240px;
+                                div {
+                                    padding: 0 5px;
+                                    position: relative;
+                                    b {
+                                        color: red;
+                                        font-size: 18px;
+                                        position: absolute;
+                                        right: -10px;
+                                        top: 30px;
+                                    }
+                                }
+                                .btn {
+                                    font-size: 12px;
+                                    padding: 6px 20px;
+                                }
+                            }
+                        }
+                        .personPass {
+                            span {
+                                position: absolute;
+                                top: 32px;
+                                display: none;
+                            }
+                            span.glyphicon-ok-sign {
+                                color: #00CC00;
+                                right: -20px;
+                            }
+                            span.glyphicon-remove-sign {
+                                color: red;
+                            }
+                            span.passError {
+                                right: -70px;
+                            }
+                            span.passLenght {
+                                right: -282px;
+                            }
+                            span.withNew {
+                                right: -135px;
+                            }
+                            span.passError,
+                            span.passLenght,
+                            span.withNew {
+                                &::before {
+                                    color: red;
+                                    padding-right: 3px;
+                                    vertical-align: top;
+                                }
+                            }
+                        }
+                        /*系统后台管理下的系统用户管理*/
+                        .kandao-systemUser {
+                            .searchBox {
+                                position: relative;
+                                input.searchIpt {
+                                    padding-left: 30px;
+                                    padding-top: 3px;
+                                    padding-bottom: 3px;
+                                }
+                                span {
+                                    position: absolute;
+                                    top: 12px;
+                                    left: 10px;
+                                    z-index: 4;
+                                    color: #ccc;
+                                    font-size: 14px;
+                                }
+                                .accoutSearch {
+                                    padding: 3px 12px;
+                                    margin-top: 0px;
+                                }
+                            }
+                        }
+                        .userAccoutStatus {
+                            margin-left: 20px;
+                        }
+                        .userAdd {
+                            margin-right: 20px;
+                        }
+                        .accoutSearchContent {
+                            margin-top: 10px;
+                        }
+                    }
+                    /*官网管理/文稿/媒体报道*/
+                    .kandao-report {
+                        .kandao-report-top {
+                            margin-bottom: 10px;
+                        }
+                        .reportSearch {
+                            cursor: pointer;
+                        }
+                    }
+                    /*按时间排序*/
+                    .sortByTime {
+                        position: relative;
+                        margin-right: 20px;
+                        cursor: pointer;
+                        &::before {
+                            position: absolute;
+                            right: -20px;
+                            top: 5px;
+                        }
+                        &:hover {
+                            color: #41C7DB;
+                            text-decoration: underline;
+                        }
+                    }
+                    /*官网管理/文稿/看到新闻*/
+                    .kandao-news {
+                        .input-group {
+                            input {
+                                width: 200px;
+                            }
+                        }
+                        .newsSearch {
+                            margin-top: 32px;
+                        }
+                    }
+                }
+            }

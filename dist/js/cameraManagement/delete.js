@@ -1,0 +1,1 @@
+define(["jquery","common/amdApi","text!tpls/deletModal.html"],function(e,t,o){return function(a){a=parseInt(a),e("#deleteMassage").remove(),$deletModal=e(o).on("click",".btn-comfirm",function(){t.ajax({url:"productions/cameras/"+a+"/delete",type:"post"},function(){$deletModal.modal("hide"),e(".cameraManagement").trigger("click")})}).appendTo("body").modal()}});

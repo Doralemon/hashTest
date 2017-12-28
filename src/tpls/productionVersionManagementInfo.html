@@ -1,0 +1,71 @@
+<ol class="breadcrumb">
+    <li>首页</li>
+    <li class="toProduction">产品版本管理</li>
+    <li class="active versionSon">版本管理</li>
+</ol>
+<div class="kandao-versionManagement commonMagagement">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="knadao-version-top">
+                <div class="productTitle clearfix">
+                    <h3 class="pull-left">产品信息</h3>
+                    <div class="form-group  pull-right">
+                        <button type="button" class="btn btn-md goback">返回</button>
+                    </div>
+                </div>
+                <div class="productInfo clearfix">
+                    <div class="productInfo-left pull-left">
+                        <p class="form-control-static"><span>产品：</span>{{info.name}}</p>
+                        <p class="form-control-static"><span>产品代号：</span>{{info.title}}</p>
+                        <p class="form-control-static usePlat"><span>使用平台：</span>{{info.platform}}</p>
+                        <div class="clearfix">
+                            <span class="pull-left">描述：</span>
+                            <p class="form-control-static  infoDes pull-left">{{info.description}}</p>
+                        </div>
+                    </div>
+                    <div class="productInfo-right pull-left">
+                        <p class="form-control-static "><span>创建者：</span>{{info.creator}}</p>
+                        <p class="form-control-static "><span>创建时间：</span>{{info.date_created}}</p>
+                        <p class="form-control-static "><span>最后一次修改者：</span>{{info.lastmodifier}}</p>
+                        <p class="form-control-static"><span>最后一次修改时间：</span>{{info.date_modified}}</p>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover table-bordered clearfix">
+                <h3 class="pull-left">版本信息</h3>
+                <div class="form-group  pull-right">
+                    <button class="btn btn-md newAdd">新建</button>
+                </div>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>版本</th>
+                        <th>版本代号</th>
+                        <th>创建时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--<tr>
+                        <td>24</td>
+                        <td>1.2.4.4</td>
+                        <td>1244</td>
+                        <td>2012-12-12 12:12:12</td>
+                        <td>正常/发布中/下线</td>
+                        <td>
+                            <button type="button" class="btn btn-edit btn-sm">编辑</button>
+                            <button type="button" class="btn btn-delete btn-sm">删除</button>
+                        </td>
+                    </tr>-->
+                </tbody>
+            </table>
+            <div class="softwaresInfo-bottom clearfix">
+                <p class="pull-left">每页显示10条信息,共{{index}}页</p>
+                <div>
+                    <ul class="pagination"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="modal fade commonedit" tabindex="-1" role="dialog" id="projectEdit">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">创建</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>项目代号</label>
+                        <input type="text" class="form-control" name="no" value="{{no}}">
+                    </div>
+                    <div class="form-group">
+                        <label>项目名称</label>
+                        <input type="text" class="form-control" value="{{name}}" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label>项目描述</label>
+                        <textarea class="form-control" rows="3" name="description">{{description}}</textarea>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">创建者</label>
+                        <div class="form-control-static col-sm-offset-3">{{creator}}</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">创建时间</label>
+                        <div class="form-control-static col-sm-offset-3">{{date_created}}</div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-8">
+                            <button type="submit" class="btn btn-sm">保存</button>
+                            <button type="submit" class="btn btn-sm" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

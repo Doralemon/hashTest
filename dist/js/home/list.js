@@ -1,0 +1,1 @@
+define(["jquery","text!tpls/home.html","artTemplate","bootstrap","page"],function(t,e,n){return function(){var o=n.render(e,{}),r=t(o);t(".kandao-contentBody").html(r)}});

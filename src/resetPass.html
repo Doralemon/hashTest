@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>KanDaoBackend-forgotLogin</title>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="sass/base.min.css" />
+    <link rel="stylesheet" type="text/css" href="sass/login.min.css" />
+    <link rel="shortcut icon" href="./img/favicon.ico">
+</head>
+
+<body>
+    <header>
+        <img src="img/kandao_logo.png" alt="">
+    </header>
+    <div id="login-container" class="resetPass">
+        <h3>后台管理系统</h3>
+        <div class="login-userInfo">
+            <h4>重置密码</h4>
+            <form id="kandao-rensetPass">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="email" readonly>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="密码" name="password">
+                    <span class="newPass glyphicon glyphicon-ok-sign"></span><span class="passLenght glyphicon glyphicon-remove-sign">密码位数应该不低于8位且包含数字和字母</span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="确认密码" name="confirmPass">
+                    <span class="confirmPass glyphicon glyphicon-ok-sign"></span><span class="withNew glyphicon glyphicon-remove-sign">必须与新密码一致</span>
+                </div>
+                <div class="btnBox">
+                    <button class="btn btn-default btn-block">重置密码</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <img src="img/kandaobottom.png" alt="" class="logo">
+    </footer>
+    <div class="modal fade" tabindex="-1" role="dialog" id="sucessMessage">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="bodyBox">
+                        <div class="glyphicon glyphicon-saved text-center">
+                        </div>
+                        <div class="userEmail"></div>
+                        <div class="passComplete">
+                            密码重置完成
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="js/lib/jquery-2.1.4.js"></script>
+<script src="js/lib/jquery.cookie.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/common/api.js"></script>
+<script type="text/javascript">
+    var passReg = /^(?!(?:\d+|[a-zA-Z]+)$)[\da-zA-Z]{8,}$/;
+    var new_password;
+    $('#kandao-rensetPass input[name="password"]').on('blur', function() { //验证密码
+        new_password = $(this).val();
+        if (!passReg.test(new_password)) {
+            $('.newPass').hide();
+            $('.passLenght').show();
+            return;
+        } else {
+            $('.passLenght').hide();
+            $('.newPass').show();
+        }
+        $('.personPass input[name="confirmPass"]').trigger('blur');
+    })
+    $('#kandao-rensetPass input[name="confirmPass"]').on('blur', function() { //验证确认密码
+        comfirm_password = $(this).val();
+        if (!$.trim(new_password)) {
+            $('.withNew').hide();
+            $('.confirmPass').hide();
+        } else if (comfirm_password !== new_password) {
+            $('.confirmPass').hide();
+            $('.withNew').show();
+        } else {
+            $('.withNew').hide();
+            $('.confirmPass').show();
+        }
+    })
+    reSetPass(); //重置密码
+
+    function reSetPass() { //重置密码
+        var token = JSON.parse($.cookie('token'));
+        if (!token) {
+            location.href = "forgotLogin.html";
+        }
+        var email = $.cookie('username');
+        $('#kandao-rensetPass input[name = "email"]').val(email);
+        $('#kandao-rensetPass').on('submit', function(e) {
+            e.preventDefault();
+            // console.log(token + '=====' + email);
+            var password = $('#kandao-rensetPass input[name = "password"]').val();
+            var confirmPass = $('#kandao-rensetPass input[name = "confirmPass"]').val();
+            if (password !== confirmPass) {
+                return;
+            }
+            if (!passReg.test(new_password)) {
+                return;
+            }
+            var reData = {
+                "email": email,
+                "password": password
+            }
+            myAjax({
+                url: "users/password_recover",
+                type: 'post',
+                data: reData,
+                token: token
+            }, function() {
+                $('#sucessMessage').appendTo('body').modal();
+                $('.userEmail').html(email);
+                setTimeout(function() {
+                    $('#sucessMessage').modal('hide');
+                    location.href = "login.html";
+                }, 1500);
+            })
+        })
+    }
+</script>

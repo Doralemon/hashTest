@@ -1,0 +1,72 @@
+<div class="staticPage" style="display:none">
+    <ol class="breadcrumb accoutList">
+        <li>首页</li>
+        <li>系统后台管理</li>
+        <li class="active">系统用户管理</li>
+    </ol>
+    <div class="kandao-systemUser commonMagagement">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="kandao-accout-top">
+                    <form class="form-inline clearfix">
+                        <div class="form-group pull-left">
+                            <label class="sr-only" for="exampleInputAmount">关键词</label>
+                            <div class="input-group searchBox">
+                                <input type="text" class="form-control searchIpt" placeholder="姓名/邮箱/角色" name="q">
+                                <div class="input-group-addon accoutSearch">搜索</div>
+                                <span class="glyphicon glyphicon-search"></span>
+                            </div>
+                            <div class="form-group  pull-right userAccoutStatus">
+                                <sapn>账号状态</sapn>
+                                <select class="form-control" name="state">
+                                    <option value="">全部</option>
+                                    <option value="0">有效</option>
+                                    <option value="1">冻结</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group pull-right userAdd">
+                            <button type="button" class="btn btn-md newAdd">新建</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="accoutSearchContent">
+                    <p class="pull-left">总计条信息</p>
+                    <table class="table table-striped  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>邮箱</th>
+                                <th>角色</th>
+                                <th>创建日期</th>
+                                <th>状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>张三</td>
+                                <td>za@kandaovr.com</td>
+                                <td>超级管理员</td>
+                                <td>2012-12-12</td>
+                                <td>有效</td>
+                                <td>
+                                    <span class="btnEdit">编辑</span>
+                                    <span class="btnResetPass">重置密码</span>
+                                    <span class="btnIce">冻结</span>
+                                    <span class="btnDelete">删除</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="accoutList-bottom clearfix">
+                        <p class="pull-left">每页显示10条信息,共页</p>
+                        <div>
+                            <ul class="pagination"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

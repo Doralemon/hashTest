@@ -1,0 +1,1 @@
+define(["jquery","artTemplate","common/amdApi","bootstrap","page"],function(e,n,t,o){return function(e){}});

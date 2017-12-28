@@ -1,0 +1,23 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="playListSort">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form>
+                    <ul class="list-group" id="items">
+                        {{each info}}
+                        <li class="list-group-item glyphicon glyphicon-align-justify" id="{{$value.id}}">{{$value.name}}</li>
+                        {{/each}}
+                    </ul>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-8">
+                            <button class="btn btn-sm">保存</button>
+                            <button class="btn btn-sm" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

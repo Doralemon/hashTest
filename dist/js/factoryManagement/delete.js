@@ -1,0 +1,1 @@
+define(["jquery","common/amdApi","text!tpls/deletModal.html"],function(e,t,o){return function(n){var n=parseInt(n);e("#deleteMassage").remove(),$deletModal=e(o).on("click",".btn-comfirm",function(){t.ajax({url:"productions/factory/"+n+"/delete",type:"post"},function(){$deletModal.modal("hide"),e(".factoryManagement").trigger("click")})}).appendTo("body").modal()}});

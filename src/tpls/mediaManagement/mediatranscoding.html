@@ -1,0 +1,116 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="transCoding">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">贴图类型</label>
+                        <div class="col-sm-7">
+                            <select class="form-control resorce" name="warping">
+                                <option value=""></option>
+                                {{each warping}}
+                                <option value="{{$value.key}}">{{$value.value}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">分辨率</label>
+                        <div class="col-sm-7">
+                            <select class="form-control resorce" name="resolution">
+                                <option value=""></option>
+                               {{each resolution}}
+                                <option value="{{$value.key}}">{{$value.value}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group videoCode">
+                        <label class="col-sm-4 control-label">视频编码</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" name="codec">
+                                <option value=""></option>
+                               {{each codec}}
+                                <option value="{{$value.key}}">{{$value.value}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group codeFiuld">
+                        <label class="col-sm-4 control-label">码流</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" name="vbr">
+                                <option></option>
+                                <option>1M</option>
+                                <option>2M</option>
+                                <option>3M</option>
+                                <option>4M</option>
+                                <option>6M</option>
+                                <option>8M</option>
+                                <option>10M</option>
+                                <option>12M</option>
+                                <option>16M</option>
+                                <option>20M</option>
+                                <option>30M</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label class="col-sm-4 control-label">视频格式</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" name="container">
+                                <option value=""></option>
+                                {{each container}}
+                                <option value="{{$value.key}}">{{$value.value}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">fov</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" name="fov">
+                                <option value=""></option>
+                                {{each fov}}
+                                <option value="{{$value.key}}">{{$value.value}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">2D/3D</label>
+                        <div class="col-sm-7">
+                            <select class="form-control" name="layout">
+                                <option value=""></option>
+                                {{each layout}}
+                                <option value="{{$value.key}}">{{$value.value}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div> -->
+                    <!--<div class="form-group imgType">
+                        <label class="col-sm-4 control-label imgFormat">图片格式</label>
+                        <div class="col-sm-7">
+                            <select class="form-control">
+                                <option></option>
+                                <option>JPG</option>
+                                <option>PNG</option>
+                            </select>
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <button class="btn btn-md" data-dismiss="modal">取消</button>
+                            <button class="btn btn-md">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

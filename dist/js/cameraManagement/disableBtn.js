@@ -1,0 +1,1 @@
+define(["jquery"],function(e){return function(){for(var n=e(".camera .searchContent").find("table tr"),t=0;t<n.length;t++)"烧录中"==e(n[t]).children("td").eq(3).html()&&(e(n[t]).find(".btn-edit").addClass("disabledCli"),e(n[t]).find(".btn-delete").hide())}});

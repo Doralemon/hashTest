@@ -1,0 +1,1 @@
+define(["jquery","text!tpls/websiteManagement/kandaoNewsManagementInfo.html","artTemplate","common/amdApi"],function(e,n,t,a){return function(o){e("#kandaoNewsInfo").remove(),a.ajax({url:"official/kd_news/"+o+"/info",type:"get"},function(a){var o=t.render(n,a.result);e(o).appendTo("body").modal().find(".newsContent").html(a.result.context)})}});

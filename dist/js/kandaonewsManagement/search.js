@@ -1,0 +1,1 @@
+define(["jquery","artTemplate","common/amdApi","kandaonewsManagement/getData","bootstrap","page"],function(a,n,e,t){return function(a){e.ajax({url:"official/kd_news/list",type:"get",json:a},function(n){t.myAjax(a,n)})}});

@@ -1,0 +1,1 @@
+define(["jquery","common/amdApi","systemUserManagement/getData"],function(e,t,n){return function(n,a){n=parseInt(n),a=parseInt(a);var s={id:n,state:a};t.ajax({url:"backend/users/"+n+"/state",type:"post",json:JSON.stringify(s)},function(){e(".systemUserManagement").trigger("click")})}});

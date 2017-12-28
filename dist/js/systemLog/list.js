@@ -1,0 +1,1 @@
+define(["jquery","text!tpls/systemBackend/operationLog.html","artTemplate","common/amdApi","systemLog/getData","bootstrap","page"],function(e,t,n,o,r){return function(){var o=n.render(t,{});e(".kandao-contentBody").html(o);var a={limit:10},o=n.render(t,{});r.myAjax(a),e(".breadcrumb li").eq(0).on("click",function(){e(".home").trigger("click")})}});

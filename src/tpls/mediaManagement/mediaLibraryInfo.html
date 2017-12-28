@@ -1,0 +1,213 @@
+<ol class="breadcrumb">
+    <li>媒体资源管理</li>
+    <li class="mediaList">媒体素材库</li>
+    <li class="active">详情</li>
+</ol>
+<div class="kandao-mediaLibraryInfo commonMagagement" id="kandaoMediaLibraryInfo">
+    <div class="mediaLibraryInfo-top clearfix">
+        <h3 class="pull-left">基本信息</h3>
+        <div class="btnBox pull-right">
+            <a href="javascript:history.back(-1)" type="button" class="btn btn-default goBack">返回</a>
+            <button type="button" class="btn btn-default infoDelete">删除</button>
+            <button type="button" class="btn btn-default infoSave">保存</button>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="infoTopPanel clearfix">
+                <div class="infoTopPanel-left pull-left">
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">ID</span>
+                        <span class="pull-left">{{id}}</span>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">类型</span>
+                        <span class="pull-left">{{m_type}}</span>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">名称</span>
+                        <input type="text" class="form-control pull-left" value="{{name}}" name="name">
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">Name</span>
+                        <input type="text" class="form-control pull-left" value="{{name_en}}" name="name_en">
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">描述</span>
+                        <textarea class="form-control pull-left" rows="3" name="description">{{description}}</textarea>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">Description</span>
+                        <textarea class="form-control pull-left" rows="3" name="description_en">{{description_en}}</textarea>
+                    </div>
+                    <div class="infodiv">
+                        <div class="clearfix">
+                            <span class="title pull-left">栏目</span>
+                            <div class="form-group pull-left">
+                                <label class="sr-only"></label>
+                                <div class="input-group">
+                                    <select class="form-control" id="columnSel">
+                                        <option value="">--请选择--</option>
+                                        {{each resTags}}
+                                        <option value="{{$value.id}}">{{$value.name}}</option>
+                                       {{/each}}
+                                    </select>
+                                    <div class="input-group-addon cloumnAdd">添加</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bigCloumnBox cloumnRemove">
+                            {{each columns}}
+                            <div class="commonBox text-center cloumnBox" id="{{$value[1]}}">{{$value[0]}}
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class="infoTopPanel-right pull-right">
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">创建者</span>
+                        <span>{{owner}}</span>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">创建时间</span>
+                        <span>{{date_created}}</span>
+                    </div>
+                    <div class="clearfix infodiv">
+                        <span class="title pull-left">状态</span>
+                         {{if (status=="UP")}}
+                        <span class="imgState {{status}}">上传成功</span>
+                         {{else if(status=="OF")}}
+                        <span class="imgState {{status}}">下线</span> 
+                        {{else if(status=="WT")}}
+                        <span class="imgState {{status}}">等待转码</span>
+                        {{else if(status=="TI")}}
+                        <span class="imgState {{status}}">转码中</span>
+                        {{else if(status=="TF")}}
+                        <span class="imgState {{status}}">转码失败</span>
+                        {{else if(status=="QU")}}
+                        <span class="imgState {{status}}">等待分发</span>
+                        {{else if(status=="DI")}}
+                        <span class="imgState {{status}}">分发成功</span>
+                        {{else if(status=="DF")}}
+                        <span class="imgState {{status}}">分发失败</span>
+                        {{else if(status=="In")}}
+                        <span class="imgState {{status}}">发布成功</span>
+                          {{else if(status=="IF")}}
+                        <span class="imgState {{status}}">发布失败</span>
+                          {{else if(status=="SU")}}
+                        <span class="imgState {{status}}">正常</span>
+                        {{/if}}
+                    </div>
+                    <div class="clearfix infodiv mediaFluid">
+                        <span class="title pull-left">媒体流地址</span>
+                        <span>{{uri_push}}</span>
+                    </div>
+                    <div class="clearfix infodiv scaleImgBox">
+                        <!--<span class="title pull-left">缩略图</span> {{if thumbnail_uri}}
+                        <img src="{{thumbnail_uri}}" alt="" class="pull-left">
+                        <button type="button" class="btn reupload">重新上传</button> {{else}}
+                        <img src=" img/giveJpg.jpg" alt="" class="pull-left">
+                        <button type="button" class="btn reupload">上传</button> {{/if}}
+                        <button type="button" class="btn imgDelete">删除</button>-->
+                        <span class="title pull-left">缩略图</span>
+                        <div class="page-header pull-left">
+                            <form id="mediaInfoImg">
+                                <div class="form-group" id="uploadForm" enctype="multipart/form-data">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput" id="exampleInputUpload">
+                                        <div class="fileinput-new thumbnail">
+                                            {{if thumbnail_uri}}
+                                            <img id="picImg" src="{{thumbnail_uri}}" alt=""> {{else}}
+                                            <img id="picImg" src="img/giveJpg.jpg" alt=""> {{/if}}
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                                        <div>
+                                            <span class="btn btn-primary btn-file">
+                                            <span class="fileinput-new">选择文件</span>
+                                            <span class="fileinput-exists">换一张</span>
+                                            <input type="file" name="pic1" id="picID" accept="image/jpg">
+                                            </span>
+                                            <a href="javascript:;" class="btn btn-warning fileinput-exists" data-dismiss="fileinput">删除</a>
+                                            <button type="button" class="btn uploadSubmit">提交</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="infodiv">
+                        <div class="clearfix">
+                            <span class="title pull-left">标签</span>
+                            <div class="form-group pull-left">
+                                <div class="form-group">
+                                    <label class="sr-only"></label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="标签不可重复">
+                                        <div class="input-group-addon tagAdd">添加</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bigTagBox tagRemove">
+                            {{each tags}}
+                            <div class="commonBox text-center tagBox" id="{{$value[1]}}">{{$value[0]}}
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="infoCenter clearfix">
+        <h3 class="pull-left">格式与链接</h3>
+        <div class="pull-right">
+            <button type="button" class="btn btn-default transCode">转码</button>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="linkContainer">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>视图类型</th>
+                            <th>分辨率</th>
+                            <th>视频编码</th>
+                            <th>比特率</th>
+                            <th>文件大小</th>
+                            <th>URL</th>
+                            <th>创建者</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cubemap</td>
+                            <td>1920*1920</td>
+                            <td>H264</td>
+                            <td>4M</td>
+                            <td>4.3GB</td>
+                            <td>http://m.kandaovr.com/H264/4M/GMIC_360x180_cube_mono.m3u8</td>
+                            <td>陈鹏飞</td>
+                            <td>2012-12-12 00:11</td>
+                            <td>
+                                <button type="button" class="btn btn-default infoPlay">播放</button>
+                                <button type="button" class="btn btn-default linkDelete">删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mediaTypeInfo-bottom clearfix">
+                    <p class="pull-left">每页显示10条信息,共页</p>
+                    <div>
+                        <ul class="pagination"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

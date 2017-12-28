@@ -1,0 +1,146 @@
+body {
+    overflow: hidden;
+    header {
+        height: 60px;
+        background-color: #000;
+        img {
+            display: block;
+            padding-top: 30px;
+            padding-left: 20px;
+        }
+    }
+    footer {
+        margin-bottom: 0px;
+        .logo {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}
+
+#login-container {
+    width: 480px;
+    height: 380px;
+    margin: 120px auto;
+    font-family: "simSon";
+    h3,
+    h4 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #65686F;
+        font-weight: 900;
+        letter-spacing: 2px
+    }
+    #kandao-login {
+        .emailBox {
+            position: relative;
+            .emailMessage {
+                display: none;
+                color: red;
+                font-size: 12px;
+                position: absolute;
+                right: -70px;
+                top: 5px;
+                b {
+                    font-size: 14px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    .login-userInfo {
+        width: 480px;
+        height: 320px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px 5px #ccc;
+        padding: 30px 100px;
+        img {
+            width: 70px;
+            height: 34px;
+            display: block;
+            cursor: pointer;
+        }
+        .forgetPass {
+            a {
+                color: #41C7DB;
+            }
+        }
+        // .checkbox {
+        //     margin: 0;
+        //     color: #ccc;
+        // }
+        // a {
+        //     color: #999;
+        // }
+        // span {
+        //     width: 34px;
+        //     height: 34px;
+        //     text-align: center;
+        //     font-size: 16px;
+        //     line-height: 34px;
+        //     color: #999;
+        // }
+        .btn-default {
+            margin-top: 5px;
+            color: #999;
+            font-size: 900;
+            background-color: #F5F5F5;
+            &:hover {
+                background-color: #212629;
+                color: #fff;
+            }
+        }
+    }
+}
+
+// 重置密码框体
+.resetPass {
+    form .form-group,
+    .btnBox {
+        margin-top: 10px;
+    }
+    .input-group-addon {
+        width: 100px;
+    }
+    .getCode {
+        cursor: pointer;
+    }
+    .glyphicon-ok-sign,
+    .glyphicon-remove-sign {
+        display: none;
+    }
+    .glyphicon-ok-sign {
+        color: #00CC00;
+    }
+    .glyphicon-remove-sign {
+        color: red;
+    }
+}
+
+// 重置成功弹框
+#sucessMessage {
+    .modal-content {
+        width: 300px;
+        height: 240px;
+    }
+    .bodyBox {
+        margin: 0 auto;
+    }
+    .userEmail,
+    .passComplete {
+        font-size: 16px;
+        font-weight: 500;
+        margin-top: 20px;
+        margin-left: 70px;
+    }
+    .glyphicon-saved {
+        margin-top: 40px;
+        font-size: 40px;
+        margin-left: 120px;
+    }
+    .passComplete {
+        font-weight: 900;
+        margin-left: 90px;
+    }
+}

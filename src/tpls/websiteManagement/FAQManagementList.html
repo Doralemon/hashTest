@@ -1,0 +1,80 @@
+<div class="staticPage">
+    <ol class="breadcrumb reportList">
+        <li>首页</li>
+        <li>官网管理</li>
+        <li class="active">FAQ管理</li>
+    </ol>
+    <div class="kandao-FAQ commonMagagement kandaoWebsite">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="kandao-mediaLibrary-top clearfix">
+                    <div class="mediaTop-left pull-left">
+                        <div class="columnList">类型</div>
+                        <div class="mediaType wordKey">关键词</div>
+                        <div class="handle">操作</div>
+                    </div>
+                    <div class="mediaTop-right pull-left">
+                        <div class="firstColumn">
+                            <span class="sBox active">全部</span>
+                            {{each FaqType}}
+                            <span class="sBox" id="{{$value.id}}">{{$value.name}}</span>
+                            {{/each}}
+                            <span class="columnManagament">问题类型管理</span>
+                        </div>
+                        <div class="form-group clearfix searchBox">
+                            <div class="input-group pull-left serchBox">
+                                <input type="text" class="form-control" placeholder="请输入关键词" name="q">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-default mediaSearch">查询</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="reportSearchContent">
+                    <p class="pull-left">总计条信息</p>
+                    <div class="form-group pull-right">
+                        <span class="glyphicon sortByTime glyphicon-sort-by-attributes">按时间升序</span>
+                        <button type="button" class="btn btn-md Addnew">新建</button>
+                    </div>
+                    <table class="table table-striped  table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>问题类型</th>
+                                <th>序号</th>
+                                <th>问题描述</th>
+                                <th>问题答案</th>
+                                <th>创建者</th>
+                                <th>创建时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>A</td>
+                                <td>1</td>
+                                <td>
+                                    Obsidian相机世界第一吗？</td>
+                                <td>Obsidian相机震惊世界</td>
+                                <td>陈鹏飞</td>
+                                <td>2012-12-12 00:11</td>
+                                <td>
+                                    <button type="button" class="btn btn-md btnEdit">编辑</button>
+                                    <button type="button" class="btn btn-md btnDelete">删除</button>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <div class="reportList-bottom clearfix">
+                        <p class="pull-left">每页显示10条信息,共页</p>
+                        <div>
+                            <ul class="pagination"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

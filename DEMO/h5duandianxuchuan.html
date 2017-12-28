@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style type="text/css">
+        input[type="file" i] {
+            width: 100px;
+            height: 50px;
+            opacity: 0;
+            /*visibility: hidden;*/
+            margin: 0;
+            padding: 0;
+            border: 0;
+            float: left;
+        }
+        .upload-button-wrap {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .upload-button-wrap:hover .upload-button {
+            border-color: #000;
+        }
+        .clearfix:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .clearfix {
+            zoom: 1;
+        }
+        .upload-button {
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
+        .upload-wrap {
+            position: relative;
+        }
+        #uploadButton {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-wrap">
+        <div class="upload-button-wrap clearfix">
+            <input type="file" id="uploadFile">
+            <button class="upload-button">选择图片</button>
+        </div>
+        <button id="uploadButton">上传</button>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+(function(w){
+    var fileUpload = function (config) {
+        var _files = [],    // 要上传文件的队列
+            _file = null,    // 当前上传的文件
+            _upload = config.uploadId,    // input[type = "file"]的控件ID
+            _submit = config.submitId,    // input[type = "submit"]的控件ID
+            _url = config.url,
+            _unit = 1024,
+            _start = 0,
+            _xmlRequest = new XMLHttpRequest();
+
+        var _init = function () {
+            document.getElementById(_upload).addEventListener("change", function (e) {
+                _files = this.files;
+                _file = _files[0];
+                e.preventDefault();
+            }, false);
+            document.getElementById(_submit).addEventListener("click", function (e) {
+                // 向后台请求文件是否存在
+                _xmlRequest.onload = function () {
+                    if (_xmlRequest.readyState == 4 && _xmlRequest.status == 200) {
+                        _start = parseInt(_xmlRequest.responseText);
+                        _uploadFile();
+                    }
+                    _xmlRequest.onload = function () {
+                        if (_xmlRequest.readyState == 4 && _xmlRequest.status == 200) {
+                            if (_xmlRequest.responseText == "success") {
+                                _start = _start + _unit;
+                                _uploadFile();
+                            }
+                        }
+                    }
+                };
+                _getSetbacks();
+                e.preventDefault();
+            }, false);
+        },
+        // 获取文件进度
+        _getSetbacks = function () {
+            _xmlRequest.open("GET", _url+"?fileName="+_file.name, true);
+            _xmlRequest.send(null);
+        },
+        // 上传文件
+        _uploadFile = function () {
+            if (_start > _file.size) return;
+            console.log(_start);
+            var formData = new FormData();
+            formData.append('fileName', _file.name);
+            formData.append('fileContent', _file.slice(_start,_start+_unit));
+            _xmlRequest.open("POST", _url, true);
+            _xmlRequest.send(formData);
+        };
+
+        _init()
+    }
+    w.fileUpload = fileUpload;
+})(window)
+var f = new fileUpload({
+        uploadId: 'uploadFile',
+        submitId: 'uploadButton',
+        url: 'http://rms2.kandao.tech/rms/v1/upload_action/'
+    })
+</script>

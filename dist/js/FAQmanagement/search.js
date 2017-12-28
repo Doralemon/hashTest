@@ -1,0 +1,1 @@
+define(["jquery","artTemplate","common/amdApi","FAQmanagement/getData","bootstrap","page"],function(a,t,e,n){return function(a){e.ajax({url:"official/faq/list",type:"get",json:a},function(t){n.myAjax(a,t)})}});

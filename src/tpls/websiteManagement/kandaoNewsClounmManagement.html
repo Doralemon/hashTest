@@ -1,0 +1,51 @@
+<div class="modal fade cloumnNews" tabindex="-1" role="dialog" id="kandaoNewscloumnManagement">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="cloumnManagement-top">
+                    <div class="form-group clearfix">
+                        <div class="searchBox">
+                            <input type="text" class="form-control cloumnSearch pull-left" placeholder="搜索新闻类型"><span class="glyphicon glyphicon-search"></span>
+                        </div>
+                        <button class="btn btn-default pull-right cloumnAdd">新增新闻类型</button>
+                    </div>
+                    <div class="tagstoAdd">
+                        {{each newsType}}
+                        <span class="sBox" id="{{$value.id}}">{{$value.name}}</span>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="cloumnManagement-bottom newsCloumn-bottom">
+                    <div class="bottomInfo">
+                        <form class="clearfix">
+                            <h3>基本信息</h3>
+                            <div class="form-group pull-left">
+                                <label>名称</label>
+                                <input type="text" class="form-control" placeholder="名称" name="name">
+                            </div>
+                            <div class="form-group pull-left">
+                                <label>Name</label>
+                                <input type="text" class="form-control" placeholder="name" name="name_en">
+                            </div>
+                            <div class="form-group pull-left">
+                                <label>描述</label>
+                                <textarea class="form-control" rows="3" name="description"></textarea>
+                            </div>
+                            <div class="form-group pull-left">
+                                <label>Description</label>
+                                <textarea class="form-control" rows="3" name="description_en"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="btnBox text-center">
+                    <div class="btn btnSave">保存</div>
+                    <div class="btn btnDelete btn-danger">删除</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<ol class="breadcrumb accoutList">
+    <li>首页</li>
+    <li>客户管理</li>
+    <li class="active">账号管理</li>
+</ol>
+<div class="kandao-accout commonMagagement">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="kandao-accout-top row">
+                <form class="form-inline clearfix">
+                    <div class="form-group pull-left">
+                        <label class="sr-only" for="exampleInputAmount">关键词</label>
+                        <div class="input-group col-md-offset-1 serchBox">
+                            <div class="input-group-addon downBox">
+                                <select name="type">
+                                    <option value="">全文</option>
+                                    <option value="company">公司</option>
+                                    <option value="name">姓名</option>
+                                    <option value="email">邮箱</option>
+                                    <option value="phone">手机</option>
+                                    <option value="creator">创建者</option>
+                                </select>
+                            </div>
+                            <input type="text" class="form-control" placeholder="搜索" name="q">
+                            <div class="input-group-addon accoutSearch">搜索</div>
+                        </div>
+                    </div>
+                    <div class="form-group pull-right accoutAdd">
+                        <button type="button" class="btn btn-md newAdd">新建</button>
+                    </div>
+                </form>
+            </div>
+            <div class="accoutSearchContent">
+                <p class="pull-left">总计{{count}}条信息</p>
+                <table class="table table-striped  table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>公司</th>
+                            <th>姓名</th>
+                            <th>邮箱</th>
+                            <th>手机</th>
+                            <th>密钥有效期</th>
+                            <th>激活设备数</th>
+                            <th>创建者</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{each data}}
+                        <tr id="{{$value.id}}">
+                            <td>{{$value.company}}</td>
+                            <td>{{$value.name}}</td>
+                            <td>{{$value.email}}</td>
+                            <td>{{$value.phone}}</td>
+                            <td>{{$value.finaltime}}</td>
+                            <td>{{$value.activatedN}}/{{$value.licenseN}}</td>
+                            <td>{{$value.creator}}</td>
+                            <td>
+                                <span class="btnInfo">详情</span>
+                                <span class="btn-secretKey">密钥</span>
+                                <span class="btn-delete">删除</span>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <div class="accoutList-bottom clearfix">
+                    <p class="pull-left">每页显示10条信息,共{{index}}页</p>
+                    <div>
+                        <ul class="pagination"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
