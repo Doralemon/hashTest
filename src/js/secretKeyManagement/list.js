@@ -1,4 +1,4 @@
-define(['jquery', 'text!tpls/secretKeyManagementList.html', 'artTemplate', 'secretKeyManagement/search', 'common/amdApi', "bootstrap", "page"],
+define(['jquery', 'text!tpls/secreKey/secretKeyManagementList.html', 'artTemplate', 'secretKeyManagement/search', 'common/amdApi', "bootstrap", "page"],
     function($, secretKeyManagementListTpl, art, search, amdApi) {
         return function() {
             var page = 1;

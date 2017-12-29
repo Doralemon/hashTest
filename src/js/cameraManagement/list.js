@@ -1,4 +1,4 @@
-define(["jquery", "text!tpls/cameraManagementList.html", 'artTemplate', 'cameraManagement/batchAll',
+define(["jquery", "text!tpls/camera/cameraManagementList.html", 'artTemplate', 'cameraManagement/batchAll',
         'cameraManagement/edit', 'cameraManagement/search', 'cameraManagement/delete', 'cameraManagement/deleteAll',
         'common/amdApi', 'common/checked', 'common/getPage', "bootstrap", "page"
     ],
@@ -46,9 +46,9 @@ define(["jquery", "text!tpls/cameraManagementList.html", 'artTemplate', 'cameraM
                         search();
                         // $('.cameraManagement').trigger('click');
                     })
-                    .on('click', '.kandao-reset', function() {
+                    .on('click', '.kandao-reset', function() { //重置
                         $('form')[0].reset();
-                        $('.cameraManagement').trigger('click');
+                        window.location.href = "#/product/camera";
                     })
                     .on('keydown', 'input[name="q"]', function(e) {
                         if (e.keyCode == 13) {

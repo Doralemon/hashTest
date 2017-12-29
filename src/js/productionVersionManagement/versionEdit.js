@@ -1,4 +1,4 @@
-define(["jquery", "text!tpls/productionVersionEdit.html", 'artTemplate', 'common/amdApi',
+define(["jquery", "text!tpls/productionVersion/productionVersionEdit.html", 'artTemplate', 'common/amdApi',
         'productionVersionManagement/getData', 'common/checked', 'productionVersionManagement/toggleLanguage',
     ],
     function($, productionVersionEditTpl, art, amdApi, getData, checked, toggleLanguage) {

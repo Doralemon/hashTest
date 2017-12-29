@@ -1,4 +1,4 @@
-define(['jquery', 'text!tpls/productionVersionManagementList.html', 'artTemplate', 'productionVersionManagement/search', 'productionVersionManagement/add',
+define(['jquery', 'text!tpls/productionVersion/productionVersionManagementList.html', 'artTemplate', 'productionVersionManagement/search', 'productionVersionManagement/add',
         'productionVersionManagement/edit', 'productionVersionManagement/info', 'productionVersionManagement/downLine',
         'common/amdApi', 'productionVersionManagement/getData', 'bootstrap', 'page'
     ],

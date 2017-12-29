@@ -1,4 +1,4 @@
-define(["jquery", "text!tpls/productionVersionManagementEdit.html", 'artTemplate', 'common/amdApi', 'productionVersionManagement/getData'],
+define(["jquery", "text!tpls/productionVersion/productionVersionManagementEdit.html", 'artTemplate', 'common/amdApi', 'productionVersionManagement/getData'],
     function($, productionVersionManagementEditTpl, art, amdApi, getData) {
         return function(id, _this) {
             $('#editVersion').remove();

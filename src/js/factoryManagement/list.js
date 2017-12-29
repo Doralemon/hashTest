@@ -1,4 +1,4 @@
-define(['jquery', 'text!tpls/factoryManagementList.html', 'artTemplate',
+define(['jquery', 'text!tpls/factory/factoryManagementList.html', 'artTemplate',
         'factoryManagement/newAdd', 'factoryManagement/edit', 'factoryManagement/delete',
         'factoryManagement/search', 'common/amdApi', 'common/getPage'
     ],

@@ -1,4 +1,4 @@
-define(['jquery', 'text!tpls/projectManagementAdd.html', 'artTemplate', 'common/amdApi'],
+define(['jquery', 'text!tpls/project/projectManagementAdd.html', 'artTemplate', 'common/amdApi'],
     function($, projectManagementAddTpl, art, amdApi) {
         return function() {
             $('#projectAdd').remove();

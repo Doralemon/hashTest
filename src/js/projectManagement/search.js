@@ -1,4 +1,4 @@
-define(["jquery", "text!tpls/projectManagementSeach.html", 'artTemplate', 'projectManagement/newAdd',
+define(["jquery", "text!tpls/project/projectManagementSeach.html", 'artTemplate', 'projectManagement/newAdd',
         'projectManagement/edit', 'projectManagement/delete', 'projectManagement/search', 'common/amdApi', 'bootstrap', "page"
     ],
     function($, projectManagementSeachTpl, art, newAdd, edit, deletebyId, search, amdApi) {

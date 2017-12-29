@@ -1,9 +1,9 @@
-define(["jquery", "text!tpls/cameraManagementEdit.html", 'artTemplate', 'common/amdApi', 'datetime'],
+define(["jquery", "text!tpls/camera/cameraManagementEdit.html", 'artTemplate', 'common/amdApi', 'datetime'],
     function($, cameraManagementEditTpl, art, amdApi) {
         return function(id, fatherRes) {
             // console.log(fatherRes);
             $('#cameraEdit').remove();
-             id = parseInt(id);
+            id = parseInt(id);
             amdApi.ajax({ url: "productions/cameras/" + id, type: 'get' }, function(res) {
                 // console.log(res);
                 state = res.result.state;

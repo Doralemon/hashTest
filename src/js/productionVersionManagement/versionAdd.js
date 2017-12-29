@@ -1,4 +1,4 @@
-define(["jquery", "text!tpls/productionVersionAdd.html", 'artTemplate', 'common/amdApi',
+define(["jquery", "text!tpls/productionVersion/productionVersionAdd.html", 'artTemplate', 'common/amdApi',
         'productionVersionManagement/getData', 'productionVersionManagement/toggleLanguage', 'upload'
     ],
     function($, productionVersionAddTpl, art, amdApi, getData, toggleLanguage) {
@@ -29,7 +29,7 @@ define(["jquery", "text!tpls/productionVersionAdd.html", 'artTemplate', 'common/
                     var version_code = $('#addVersionSon input[name="version_code"]').val();
                     version_code = parseInt(version_code);
                     var regCode = /^[0-9]*$/;
-                    if(!$.trim(version_name)||!$.trim(version_code)){
+                    if (!$.trim(version_name) || !$.trim(version_code)) {
                         alert("请输入版本名称/版本代号等信息！");
                         return;
                     }
@@ -44,7 +44,7 @@ define(["jquery", "text!tpls/productionVersionAdd.html", 'artTemplate', 'common/
                     json.description = description;
                     json.description_en = description_en;
                     var str = json.file_name;
-                    if (!json.file_name||$("#uploadifive-sourceFile-queue .fileinfo").text().indexOf("Error")>-1) {
+                    if (!json.file_name || $("#uploadifive-sourceFile-queue .fileinfo").text().indexOf("Error") > -1) {
                         alert("请先上传程序包！");
                         return;
                     }

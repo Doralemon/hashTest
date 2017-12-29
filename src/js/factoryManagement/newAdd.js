@@ -1,4 +1,4 @@
-define(['jquery', 'text!tpls/factoryManagementAdd.html', 'artTemplate', "common/amdApi"],
+define(['jquery', 'text!tpls/factory/factoryManagementAdd.html', 'artTemplate', "common/amdApi"],
     function($, factoryManagementAddTpl, art, amdApi) {
         return function() {
             $('#factoryAdd').remove();

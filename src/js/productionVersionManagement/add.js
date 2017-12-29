@@ -1,4 +1,4 @@
-define(["jquery", "text!tpls/productionVersionManagementAdd.html", 'artTemplate', "common/amdApi", 'bootstrap'],
+define(["jquery", "text!tpls/productionVersion/productionVersionManagementAdd.html", 'artTemplate', "common/amdApi", 'bootstrap'],
     function($, productionVersionManagementAddTpl, art, amdApi) {
         return function() {
             $('#addVersion').remove();

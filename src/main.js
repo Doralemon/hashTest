@@ -147,7 +147,7 @@ require(['jquery', 'common/api', 'cameraManagement/list', 'projectManagement/lis
             initData("#/media/mediaLibrary");
         });
         $('.playList').on('click', function() { //媒资下的播放列表
-            // initData();
+            initData("#/media/playList");
         });
 
         function getClick() {

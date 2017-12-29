@@ -1,4 +1,4 @@
-define(["jquery", "text!tpls/cameraManagementBatchAll.html", 'artTemplate', 'common/amdApi', 'datetime'],
+define(["jquery", "text!tpls/camera/cameraManagementBatchAll.html", 'artTemplate', 'common/amdApi', 'datetime'],
     function($, cameraManagementBatchAllTpl, art, amdApi) {
         return function(res) {
             // console.log(res)

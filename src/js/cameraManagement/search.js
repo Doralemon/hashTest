@@ -1,4 +1,4 @@
-define(["jquery", 'text!tpls/cameraManagementSearch.html', 'artTemplate', 'cameraManagement/batchAll',
+define(["jquery", 'text!tpls/camera/cameraManagementSearch.html', 'artTemplate', 'cameraManagement/batchAll',
     'cameraManagement/edit', 'cameraManagement/search', 'cameraManagement/delete', 'cameraManagement/deleteAll',
     'common/amdApi', 'common/checked', "bootstrap", "page"
 ], function($, cameraManagementSearchTpl, art, batchAll, edit, search, deleteById, deleteAll, amdApi, checked) {
