@@ -10,7 +10,7 @@ define(['jquery', 'common/amdApi', 'mediaPlayList/getData', 'text!tpls/deletModa
                         setTimeout(function() {
                             $deletModal.modal('hide');
                         }, 300);
-                        $('.playList').trigger('click');
+                        window.location.reload(true);
                     })
                 })
                 .appendTo('body').modal();

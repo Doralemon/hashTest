@@ -15,15 +15,15 @@ define(["jquery", "text!tpls/userBaseInfo.html", 'artTemplate', 'common/amdApi',
                 '<form>' +
                 '<div class="form-group">' +
                 '<label>旧密码</label>' +
-                '<input type="text" class="form-control" placeholder="密码" name="old_password"><span class="passCorrate glyphicon glyphicon-ok-sign"></span><span class="passError glyphicon glyphicon-remove-sign">密码错误</span>' +
+                '<input type="password" class="form-control" placeholder="密码" name="old_password"><span class="passCorrate glyphicon glyphicon-ok-sign"></span><span class="passError glyphicon glyphicon-remove-sign">密码错误</span>' +
                 '</div>' +
                 '<div class="form-group">' +
                 '<label>新密码</label>' +
-                '<input type="text" class="form-control" placeholder="新密码" name="new_password"><span class="newPass glyphicon glyphicon-ok-sign"></span><span class="passLenght glyphicon glyphicon-remove-sign">密码位数应该不低于8位且包含数字和字母</span>' +
+                '<input type="password" class="form-control" placeholder="新密码" name="new_password"><span class="newPass glyphicon glyphicon-ok-sign"></span><span class="passLenght glyphicon glyphicon-remove-sign">密码位数应该不低于8位且包含数字和字母</span>' +
                 '</div>' +
                 '<div class="form-group">' +
                 '<label>确认密码</label>' +
-                '<input type="text" class="form-control" placeholder="确认密码" name="comfirm_password"><span class="confirmPass glyphicon glyphicon-ok-sign"></span><span class="withNew glyphicon glyphicon-remove-sign">必须与新密码一致</span>' +
+                '<input type="password" class="form-control" placeholder="确认密码" name="comfirm_password"><span class="confirmPass glyphicon glyphicon-ok-sign"></span><span class="withNew glyphicon glyphicon-remove-sign">必须与新密码一致</span>' +
                 '</div>' +
                 '<div class="form-group text-center">' +
                 '<button class="btn btn-default btnSave">确认</button>' +

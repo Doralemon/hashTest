@@ -46,13 +46,14 @@ require(['jquery', 'common/api', 'cameraManagement/list', 'projectManagement/lis
         'userCenter/changePass', 'systemUserManagement/list', 'systemRolesManagement/list', 'systemLog/list',
         'mediaManagement/list', 'mediaPlayList/list', 'transCodingManagement/list',
         'reportManagement/list', 'kandaonewsManagement/list', 'FAQmanagement/list', 'home/list', 'mediaManagement/mediaInfo',
+        'mediaPlayList/info',
         'text!../tpls/loading.html', 'common/amdApi', 'common/route', 'cookie'
     ],
     function($, api, cameraManagementList, projectManagementList, factoryManagementList,
         accoutManagementList, secretKeyManagementList, productionVersionManagementList, userCenterUserBasic, userCenterChangePass,
         systemUserManagementList, systemRolesManagementList, systemLogList, mediaManagementList, mediaPlayList,
         transCodingManagementList, reportManagementList, kandaonewsManagementList, FAQmanagementList,
-        homeList, mediaManagementInfo,
+        homeList, mediaManagementInfo, mediaPlayListInfo,
         loadingTpl, amdApi) {
         // 验证用户登录
         var usernameStr = $.cookie('username');
@@ -92,8 +93,7 @@ require(['jquery', 'common/api', 'cameraManagement/list', 'projectManagement/lis
         })
         var flag = true;
         var productionVersionManagementFlag = { flag1: true, flag2: true }
-        playListFlag = { flag1: true, flag2: true },
-            transcodingManagementFlag = { flag1: true, flag2: true },
+        transcodingManagementFlag = { flag1: true, flag2: true },
             accoutManagementFlag = { flag1: true, flag2: true },
             cameraManagementFlag = { flag1: true, flag2: true },
             projectManagementFlag = { flag1: true, flag2: true },
@@ -233,7 +233,10 @@ require(['jquery', 'common/api', 'cameraManagement/list', 'projectManagement/lis
             })
             spaRouters.map('/media/playList', function(transition) { //播放列表
                 $(".mediaSonList").show();
-                spaRouters.syncFun(mediaPlayList.bind(playListFlag), transition);
+                spaRouters.syncFun(mediaPlayList, transition);
+            })
+            spaRouters.map('/media/playList/detail', function(transition) { //播放列表详情
+                spaRouters.syncFun(mediaPlayListInfo, transition);
             })
             spaRouters.map('/media/transCode', function(transition) { //转码管理
                 $(".mediaSonList").show();

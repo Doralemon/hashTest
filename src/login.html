@@ -34,7 +34,7 @@
                 </div>
                 <div class="clearfix forgetPass">
                     <div class="pull-right">
-                    <a href="javascript:void(0)">忘记密码?</a>
+                        <a href="javascript:void(0)">忘记密码?</a>
                     </div>
                 </div>
                 <button class="btn btn-default btn-block">登录</button>
@@ -43,7 +43,7 @@
     </div>
     <footer>
         <img src="img/kandaobottom.png" alt="" class="logo">
-    </footer> 
+    </footer>
     <div class="modal fade" tabindex="-1" role="dialog" id="loginMessage">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
@@ -59,7 +59,7 @@
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
-    </div>  
+    </div>
 </body>
 
 </html>
@@ -69,79 +69,87 @@
 <script type="text/javascript" src="assets/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="js/common/api.js"></script>
 <script type="text/javascript">
-$(function(){
-    if(!$('input[name = "username"]').val()||!$('input[name = "password"]').val()){
-    $('input[name = "username"]').val($.cookie('username'));
-    $('input[name = "password"]').val($.cookie('nnnnnn'));
-    }
-    $(".kandao-refesh").attr('src',api() + "users/authcode/111");  
-    $(".kandao-refesh").on('click', function() {
-        var num = Math.ceil(Math.random() * 1000);         
-        $(this).attr('src',api() + "users/authcode/" + num); 
-    })
-    $('input[name = "username"]').on('blur', function() {
-        var username = $(this).val();
-        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        if (!filter.test(username)) {
-            $('.emailMessage').show();
-            return;
-        } else {
-            $('.emailMessage').hide();
+    $(function() {
+        if (!$('input[name = "username"]').val() || !$('input[name = "password"]').val()) {
+            $('input[name = "username"]').val($.cookie('username'));
+            $('input[name = "password"]').val(sessionStorage.getItem("mmmm"));
         }
-    })
-    $("#kandao-login").on('submit', function(e) {
-        e.preventDefault();
-        var username = $('input[name = "username"]').val();
-        var password = $('input[name = "password"]').val();
-        var code = $('input[name = "code"]').val();
-        var cs = getCookie('x-code-session');
-        if(!$.trim(username)||!$.trim(password)||!$.trim(code)){
-            alert("请输入邮箱/密码/验证字符！");
-            return;
-        }
-        $("#loginMessage").appendTo("body").modal();        
-        function GetJsonData() {
-            var json = {
-                "username": username,
-                "password": password,
-                "code": code,
-                "code_session":cs
-            };
-            return json;
-        }
-        myAjax({
-            url: "users/login",
-            type: 'post',
-            xhrFields: {
-                    withCredentials: true
-            },
-            data:GetJsonData(),       
-        }, function(res) {
-            //本地存储
-            $.cookie('username', username,{expires:7});
-            $.cookie('token', JSON.stringify(res.result.token),{expires:7});
-            location.href = 'index.html';
-        },$('#loginMessage').appendTo("body").modal(),$('#loginMessage').modal("hide"))
-    })
-    function getCookie(c_name) { //获取cookie
-        if (document.cookie.length>0)
-          {
-          c_start=document.cookie.indexOf(c_name + "=")
-          if (c_start!=-1)
-            {
-            c_start=c_start + c_name.length+1
-            c_end=document.cookie.indexOf(";",c_start)
-            if (c_end==-1) c_end=document.cookie.length
-            return unescape(document.cookie.substring(c_start,c_end))
+        $(".kandao-refesh").attr('src', api() + "users/authcode/111");
+        $(".kandao-refesh").on('click', function() {
+            var num = Math.ceil(Math.random() * 1000);
+            $(this).attr('src', api() + "users/authcode/" + num);
+        })
+        $('input[name = "username"]').on('blur', function() {
+            var username = $(this).val();
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!filter.test(username)) {
+                $('.emailMessage').show();
+                return;
+            } else {
+                $('.emailMessage').hide();
             }
-          }
-        return ""
-    }
+        })
+        $("#kandao-login").on('submit', function(e) {
+            e.preventDefault();
+            var username = $('input[name = "username"]').val();
+            var password = $('input[name = "password"]').val();
+            sessionStorage.setItem("mmmm", password);
+            var code = $('input[name = "code"]').val();
+            var cs = getCookie('x-code-session');
+            if (!$.trim(username) || !$.trim(password) || !$.trim(code)) {
+                alert("请输入邮箱/密码/验证字符！");
+                return;
+            }
+            $("#loginMessage").appendTo("body").modal();
 
-$(".forgetPass").on("click",function(){ //忘记密码
-    var username = $('input[name = "username"]').val();
-    $.cookie('account', username,{expires:7});
-    location.href="forgotLogin.html";
-})
-})
+            function GetJsonData() {
+                var json = {
+                    "username": username,
+                    "password": password,
+                    "code": code,
+                    "code_session": cs
+                };
+                return json;
+            }
+            myAjax({
+                url: "users/login",
+                type: 'post',
+                xhrFields: {
+                    withCredentials: true
+                },
+                data: GetJsonData(),
+            }, function(res) {
+                //本地存储
+                sessionStorage.removeItem("mmmm");
+                $.cookie('username', username, {
+                    expires: 7
+                });
+                $.cookie('token', JSON.stringify(res.result.token), {
+                    expires: 7
+                });
+                location.href = 'index.html';
+            }, $('#loginMessage').appendTo("body").modal(), $('#loginMessage').modal("hide"))
+        })
+
+        function getCookie(c_name) { //获取cookie
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=")
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1
+                    c_end = document.cookie.indexOf(";", c_start)
+                    if (c_end == -1) c_end = document.cookie.length
+                    return unescape(document.cookie.substring(c_start, c_end))
+                }
+            }
+            return ""
+        }
+
+        $(".forgetPass").on("click", function() { //忘记密码
+            var username = $('input[name = "username"]').val();
+            $.cookie('account', username, {
+                expires: 7
+            });
+            location.href = "forgotLogin.html";
+        })
+    })
 </script>

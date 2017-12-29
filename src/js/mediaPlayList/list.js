@@ -1,36 +1,44 @@
 define(['jquery', 'text!tpls/mediaManagement/mediaPlayList.html', 'artTemplate', 'common/amdApi',
-        'mediaPlayList/add', 'mediaPlayList/info', 'mediaPlayList/getData', 'mediaPlayList/listSearch',
+        'mediaPlayList/add', 'mediaPlayList/info', 'mediaPlayList/getData',
         'mediaPlayList/delete', 'common/getPage',
         "bootstrap", "page"
     ],
-    function($, mediaPlayListTpl, art, amdApi, palyAdd, playInfo, getData, listSearch, deleteById, getPage) {
-        return function(playListFlag) {
-            var obj = getPage($('.kandao-playList'), 10, playListFlag.flag1);
-            if ($('.playSearchContent table tbody tr').length == 1 && !playListFlag.flag2) {
-                obj.json.page = obj.json.page - 1 || 1;
+    function($, mediaPlayListTpl, art, amdApi, palyAdd, playInfo, getData, deleteById, getPage) {
+        return function(transition) {
+            var id, m_type, selecttype, q, page;
+            selecttype = transition.query.type || "";
+            q = transition.query.q || "";
+            if (sessionStorage.getItem("page") !== "null" || sessionStorage.getItem("page") !== null) {
+                page = sessionStorage.getItem("page");
+            } else {
+                page = "1"
             }
-            amdApi.ajax({ url: 'medias/playlists', type: 'get', json: obj.json }, function(res) {
+            var json = {
+                limit: 10,
+                page: page || 1,
+                q: q,
+                type: selecttype
+            }
+            url = "#/media/playList?page=" + page + "&q=" + q + "&type=" + selecttype;
+            sessionStorage.removeItem("playListhashUrl");
+            sessionStorage.setItem("playListhashUrl", url); //存储url给详情页使用
+            amdApi.ajax({ url: 'medias/playlists', type: 'get', json: json }, function(res) {
                 var mediaPlayList = art.render(mediaPlayListTpl, {});
                 var $mediaPlayList = $(mediaPlayList)
                     .on('click', '.palyListSearch', function() { //搜索
-                        // console.log(123)
-                        var q = $mediaPlayList.find('input[name="q"]').val();
-                        var type = $mediaPlayList.find('select[name="type"]').val();
-                        listSearch(q, type);
+                        sessionStorage.setItem("page", 1);
+                        q = $mediaPlayList.find('input[name="q"]').val();
+                        selecttype = $mediaPlayList.find('select[name="type"]').val();
+                        url = "#/media/playList?page=" + page + "&q=" + q + "&type=" + selecttype;
+                        window.location.href = url;
                     })
                     .on('click', '.playAdd', function() { //新建
-                        playListFlag.flag1 = false;
+                        sessionStorage.setItem("page", 1);
                         palyAdd();
                     })
-                    .on('click', '.btnInfo', function() { //播放列表详情
-                        var id = $(this).parents('tr').attr('id');
-                        var m_type = $(this).parents('tr').children().eq(2).text();
-                        playInfo(id, m_type);
-                    })
                     .on('click', '.btnDelete', function() { //删除播放列表
-                        playListFlag.flag2 = false;
-                        var id = $(this).parents('tr').attr('id');
-                        var m_type = $(this).parents('tr').children().eq(2).text();
+                        id = $(this).parents('tr').attr('id');
+                        m_type = $(this).parents('tr').children().eq(2).text();
                         deleteById(id, m_type);
                     })
                     .on('keydown', 'input[name="q"]', function(e) {
@@ -39,13 +47,10 @@ define(['jquery', 'text!tpls/mediaManagement/mediaPlayList.html', 'artTemplate',
                             $mediaPlayList.find('.palyListSearch').trigger('click');
                         }
                     });
-                playListFlag.flag1 = true;
-                playListFlag.flag2 = true;
                 $(".kandao-contentBody").html($mediaPlayList);
-                getData.myAjax(obj.json, res);
-                $('.breadcrumb li').eq(0).on('click', function() { //回首页
-                    $('.home').trigger('click');
-                })
+                getData.myAjax(json, res);
+                $(".kandao-playList").find('input[name="q"]').val(q); //设置q
+                $(".kandao-playList").find('select[name="type"]').val(selecttype); //设置关键词select
             });
         }
     })

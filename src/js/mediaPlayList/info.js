@@ -3,14 +3,13 @@ define(['jquery', 'text!tpls/mediaManagement/mediaPlayInfo.html', 'artTemplate',
         'mediaPlayList/deleteCloumn'
     ],
     function($, mediaPlayInfoTpl, art, amdApi, tagSort, addTag, getData, deleteCloumn) {
-        return function(id, m_type) {
+        return function(transition) {
+            var id = transition.query.num;
+            var m_type = transition.query.type;
             $('#playListAdd').remove();
             amdApi.ajax({ url: 'medias/playlists/' + m_type + '/' + id + '', type: 'get' }, function(res) {
                 var mediaPlayInfo = art.render(mediaPlayInfoTpl, res.result);
                 var $mediaPlayInfo = $(mediaPlayInfo)
-                    .on('click', '.mediaPlayList,.goBack', function() { //回到播放列表
-                        $('.playList').click();
-                    })
                     .on('click', '.infoSave', function() { //保存
                         var name = $mediaPlayInfo.find('input[name="name"]').val();
                         var description = $mediaPlayInfo.find('textarea[name="description"]').val();
@@ -24,7 +23,9 @@ define(['jquery', 'text!tpls/mediaManagement/mediaPlayInfo.html', 'artTemplate',
                         }
                         amdApi.ajax({ url: 'medias/playlists/' + m_type + '/' + id + '/change', type: 'post', json: JSON.stringify(json) }, function() {
                             alert("保存成功！");
-                            $('.playList').click(); //回到播放列表
+                            var url = sessionStorage.getItem("playListhashUrl");
+                            window.location.replace(url);
+                            window.location.reload(true); //回到播放列表
                         })
                     })
                     .on('click', '.sort', function() { //排序

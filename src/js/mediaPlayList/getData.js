@@ -12,7 +12,7 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
                     '<td>' + obj.owner + '</td>' +
                     '<td>' + obj.date_created + '</td>' +
                     '<td>' +
-                    '<button type="button" class="btn btn-md btnInfo">详情</button>' +
+                    '<a href="#/media/playList/detail?type=' + obj.m_type + '&num=' + obj.id + '" class="btn btn-md btnInfo">详情</a>' +
                     '<button type="button" class="btn btn-md btnDelete">删除</button>' +
                     '</td>' +
                     '</tr>';
@@ -46,8 +46,18 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
             var num = 10;
             var index = Math.ceil(res.result.count / num);
             res.result.index = index;
-            $('.playSearchContent>p').text('总计' + res.result.count + '条信息');
-            $('.playList-bottom>p').text('每页显示10条信息,共' + index + '页');
+            if (res.result.data.length < 1) {
+                $('.kandao-playList').find('.playSearchContent p').css('display', 'none');
+                $('.kandao-playList').find('.playSearchContent table').css('display', 'none');
+                $('.kandao-playList').find('.playSearchContent .playList-bottom').css('display', 'none');
+                $('.kandao-playList').find('.playSearchContent').html('暂无数据');
+            } else {
+                $('.kandao-playList').find('.playSearchContent p').css('display', 'block');
+                $('.kandao-playList').find('.playSearchContent table').css('display', 'table');
+                $('.kandao-playList').find('.playSearchContent .playList-bottom').css('display', 'block');
+                $('.playSearchContent>p').text('总计' + res.result.count + '条信息');
+                $('.playList-bottom>p').text('每页显示10条信息,共' + index + '页');
+            }
             var btnNum;
             if (index < 6) {
                 btnNum = index;
@@ -73,9 +83,10 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
                     pageNow: json.page,
                     maxPageButton: buttons,
                     onPageClicked: function(obj, pageIndex) {
-                        // alert((pageIndex + 1) + '页');
                         json.page = pageIndex + 1;
                         amdApi.ajax({ url: "medias/playlists", type: "get", json: json }, function(res) {
+                            sessionStorage.removeItem("page");
+                            sessionStorage.setItem("page", json.page);
                             _this.getListData(res);
                         })
                     }

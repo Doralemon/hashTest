@@ -19,7 +19,7 @@ define(['jquery', 'text!tpls/mediaManagement/playListAdd.html', 'artTemplate', '
                     }
                     amdApi.ajax({ url: 'medias/playlists/add', type: 'POST', json: JSON.stringify(json) }, function(res) {
                         $playListAdd.modal('hide');
-                        $('.playList').click();
+                        window.location.reload(true);
                     })
                 })
                 .appendTo('body').modal();

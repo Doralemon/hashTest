@@ -74,7 +74,6 @@ define(['jquery', 'text!tpls/mediaManagement/mediaLibrary.html', 'artTemplate', 
                         selectWord = $mediaLibrary.find('select[name="type"] option:selected').val();
                         sessionStorage.setItem("page", 1);
                         url = "#/media/mediaLibrary?page=" + page + "&q=" + q + "&type=" + m_type + "&column=" + column + "&selectWord=" + selectWord;
-                        // $('.kandao-aside a[href="#/media/mediaLibrary"]').attr("href", url);
                         window.location.href = url;
                         $(this).attr("disabled", false);
                     })

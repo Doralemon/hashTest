@@ -31,6 +31,7 @@ define(['jquery', 'text!tpls/secreKey/secretKeyManagementSearch.html', 'artTempl
                 var secretKeyManagementSearch = art.render(secretKeyManagementSearchTpl, res.result);
                 var $secretKeyManagementSearch = $(secretKeyManagementSearch)
                 $(".kandao-secrentKey .secrentKeySearch").html($secretKeyManagementSearch);
+                $('.kandao-secrentKey .secrentKeySearch table').addClass("table-bordered");
                 var btnNum;
                 if (index < 6) {
                     btnNum = index;
@@ -94,6 +95,7 @@ define(['jquery', 'text!tpls/secreKey/secretKeyManagementSearch.html', 'artTempl
                                 }
                                 str += '</tbody>';
                                 $('.kandao-secrentKey .secrentKeySearch table').html(str);
+                                $('.kandao-secrentKey .secrentKeySearch table').addClass("table-bordered");
                             })
                         }
                     });
