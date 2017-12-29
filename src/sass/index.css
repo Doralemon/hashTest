@@ -26,6 +26,11 @@ body .kandao-progress {
   margin-top: 200px;
 }
 
+body a {
+  text-decoration: none;
+  color: #000;
+}
+
 body table > thead > tr > th {
   text-align: center;
 }
@@ -794,7 +799,9 @@ body #kandaoNewsEditFromEn {
   display: none;
 }
 
-body #newsAdd .modal-content, body #kandaoNewsEdit .modal-content, body #kandaoNewsInfo .modal-content {
+body #newsAdd .modal-content,
+body #kandaoNewsEdit .modal-content,
+body #kandaoNewsInfo .modal-content {
   height: 600px;
   overflow: auto;
 }
@@ -1170,7 +1177,9 @@ body .cloumnNews .newsCloumn-bottom textarea {
   margin-top: 320px;
 }
 
-.kandao-contanier .kandao-content .kandao-contentBody a.thumbnail:hover, .kandao-contanier .kandao-content .kandao-contentBody a.thumbnail:focus, .kandao-contanier .kandao-content .kandao-contentBody a.thumbnail.active {
+.kandao-contanier .kandao-content .kandao-contentBody a.thumbnail:hover,
+.kandao-contanier .kandao-content .kandao-contentBody a.thumbnail:focus,
+.kandao-contanier .kandao-content .kandao-contentBody a.thumbnail.active {
   border-color: #ddd;
   text-decoration: none;
 }

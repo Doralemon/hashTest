@@ -10,7 +10,7 @@ define(['jquery', 'text!tpls/mediaManagement/trnasCodingManagement.html', 'artTe
             if ($('.kandao-transCodingManagement table tbody tr').length <= 1 && !transcodingManagementFlag.flag2) {
                 obj.json.page = obj.json.page - 1 || 1;
             }
-            var id, m_type;
+            var id, m_type, q;
             amdApi.ajax({ url: "medias/transcode/task_list", type: "get", json: obj.json }, function(res) {
                 // console.log(res)
                 var trnasCodingManagement = art.render(trnasCodingManagementTpl, {});
@@ -35,7 +35,7 @@ define(['jquery', 'text!tpls/mediaManagement/trnasCodingManagement.html', 'artTe
                         m_type = $(this).parents('tr').children().eq(1).attr('m_type');
                         deleteById(id);
                     })
-                    .on('keydown', 'input[name="q"]', function(e) {
+                    .on('keydown', 'input[name="q"]', function(e) { //搜索
                         if (e.keyCode == 13) {
                             e.preventDefault();
                             var q = $(this).val();
@@ -48,9 +48,7 @@ define(['jquery', 'text!tpls/mediaManagement/trnasCodingManagement.html', 'artTe
                 transcodingManagementFlag.flag2 = true;
                 $(".kandao-contentBody").html($trnasCodingManagement);
                 getData.myAjax(obj.json, res);
-                $('.breadcrumb li').eq(0).on('click', function() { //回首页
-                    $('.home').trigger('click');
-                })
+                $(".kandao-transCodingManagement").find('input[name="q"]').val(q); //设置q
             });
         }
     })

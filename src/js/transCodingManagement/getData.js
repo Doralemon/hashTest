@@ -58,8 +58,18 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
             var num = 10;
             var index = Math.ceil(res.result.count / num);
             res.result.index = index;
-            $('.mediaContainer>p').text('总计' + res.result.count + '条信息');
-            $('.transCoding-bottom>p').text('每页显示10条信息,共' + index + '页');
+            if (res.result.data.length < 1) {
+                $('.kandao-transCodingManagement').find('.mediaContainer p').css('display', 'none');
+                $('.kandao-transCodingManagement').find('.mediaContainer table').css('display', 'none');
+                $('.kandao-transCodingManagement').find('.mediaContainer .playList-bottom').css('display', 'none');
+                $('.kandao-transCodingManagement').find('.mediaContainer').html('暂无数据');
+            } else {
+                $('.kandao-transCodingManagement').find('.mediaContainer p').css('display', 'block');
+                $('.kandao-transCodingManagement').find('.mediaContainer table').css('display', 'table');
+                $('.kandao-transCodingManagement').find('.mediaContainer .playList-bottom').css('display', 'block');
+                $('.mediaContainer>p').text('总计' + res.result.count + '条信息');
+                $('.transCoding-bottom>p').text('每页显示10条信息,共' + index + '页');
+            }
             var btnNum;
             if (index < 6) {
                 btnNum = index;
@@ -77,6 +87,7 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
                 $('.go').click();
                 $(".pagination .goTo input").val("");
             }
+
             function createPage(pageSize, buttons, total) {
                 $('.kandao-transCodingManagement').find(".pagination").jBootstrapPage({
                     pageSize: pageSize,
@@ -102,9 +113,9 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
                 //   成功的状态不能重试，其他状态可以
                 if (obj.status == "F") {
                     str = '<button type="button" class="btn btn-sm btnRetry">重试</button>' +
-                    '<button type="button" class="btn btn-sm btnDelete">删除</button>'
+                        '<button type="button" class="btn btn-sm btnDelete">删除</button>'
                 } else {
-                    str = '<button type="button" class="btn btn-sm btnDelete">删除</button>'                    
+                    str = '<button type="button" class="btn btn-sm btnDelete">删除</button>'
                 }
                 switch (obj.status) {
                     case "R":
@@ -192,17 +203,17 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
             var arr = [];
             for (var i = 0; i < res.result.data.length; i++) {
                 var obj = res.result.data[i];
-                var str = '<tr>'+
-                '<td>视频</td>'+
-                '<td>Cubemap</td>'+
-                '<td>1920*1920</td>'+
-                '<td>H264</td>'+
-                '<td>4M</td>'+
-                '<td>'+
-                    '<button type="button" class="btn btn-sm btnEdit">编辑</button>'+
-                    '<button type="button" class="btn btn-sm btnDelete">删除</button>'+
-                '</td>'+
-                '</tr>';
+                var str = '<tr>' +
+                    '<td>视频</td>' +
+                    '<td>Cubemap</td>' +
+                    '<td>1920*1920</td>' +
+                    '<td>H264</td>' +
+                    '<td>4M</td>' +
+                    '<td>' +
+                    '<button type="button" class="btn btn-sm btnEdit">编辑</button>' +
+                    '<button type="button" class="btn btn-sm btnDelete">删除</button>' +
+                    '</td>' +
+                    '</tr>';
                 arr.push(str);
             }
             var html = arr.join("");
@@ -249,6 +260,8 @@ define(['jquery', 'common/amdApi'], function($, amdApi) {
                         // alert((pageIndex + 1) + '页');
                         json.page = pageIndex + 1;
                         amdApi.ajax({ url: "medias/transcode/" + id + "/line_info", type: "get", json: json }, function(res) {
+                            sessionStorage.removeItem("page");
+                            sessionStorage.setItem("page", json.page);
                             _this.getInitCodeData(res);
                         })
                     }

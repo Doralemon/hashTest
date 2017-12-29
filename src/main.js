@@ -149,6 +149,9 @@ require(['jquery', 'common/api', 'cameraManagement/list', 'projectManagement/lis
         $('.playList').on('click', function() { //媒资下的播放列表
             initData("#/media/playList");
         });
+        $('.transcodingManagement').on('click', function() { //媒资下的转码管理
+            initData("#/media/transCode");
+        });
 
         function getClick() {
             $('.customerManagement').on('click', function() { // 客户管理

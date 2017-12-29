@@ -23,6 +23,17 @@ define(['jquery', 'text!tpls/mediaManagement/mediaPlayList.html', 'artTemplate',
             sessionStorage.removeItem("playListhashUrl");
             sessionStorage.setItem("playListhashUrl", url); //存储url给详情页使用
             amdApi.ajax({ url: 'medias/playlists', type: 'get', json: json }, function(res) {
+                if (!res.result.data.length) {
+                    json.page = json.page - 1 || 1;
+                    amdApi.ajax({ url: 'medias/playlists', type: 'get', json: json }, function(res2) {
+                        afterAjax(res2);
+                    })
+                    return;
+                }
+                afterAjax(res);
+            });
+
+            function afterAjax(res) {
                 var mediaPlayList = art.render(mediaPlayListTpl, {});
                 var $mediaPlayList = $(mediaPlayList)
                     .on('click', '.palyListSearch', function() { //搜索
@@ -51,6 +62,6 @@ define(['jquery', 'text!tpls/mediaManagement/mediaPlayList.html', 'artTemplate',
                 getData.myAjax(json, res);
                 $(".kandao-playList").find('input[name="q"]').val(q); //设置q
                 $(".kandao-playList").find('select[name="type"]').val(selecttype); //设置关键词select
-            });
+            }
         }
     })
